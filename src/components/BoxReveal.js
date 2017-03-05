@@ -7,7 +7,7 @@ class BoxReveal extends Component {
     super(props);
     this.childRefs = [];
     this.revealed = false;
-    this.children;
+    this.children = [];
     this.state = {
       childWidth: 0,
       childHeight: 0,
@@ -20,12 +20,6 @@ class BoxReveal extends Component {
         childWidth = 0;
 
     this.children = this.childRefs.map( (ref) => {
-      console.log('child scroll height:',this.refs[ref].scrollHeight);
-      console.log('child scroll width:',this.refs[ref].scrollWidth);
-      console.log('child offset height:',this.refs[ref].offsetHeight);
-      console.log('child offset width:',this.refs[ref].offsetWidth);
-      console.log('child client height:',this.refs[ref].clientHeight);
-      console.log('child client width:',this.refs[ref].clientWidth);
       childHeight = this.refs[ref].scrollHeight;
       childWidth = this.refs[ref].scrollWidth;
       return this.refs[ref]
@@ -60,7 +54,6 @@ class BoxReveal extends Component {
   render() {
     const { childHeight, childWidth } = this.state;
     const hasChildDimensions = childHeight !== 0 && childWidth !== 0;
-    console.log('has dimensions:', hasChildDimensions);
     const containerStyle = {
       position: 'relative',
       margin: '0px',
@@ -82,8 +75,6 @@ class BoxReveal extends Component {
       zIndex: 2
     };
 
-    console.log('child height render:',this.state.childHeight);
-    console.log('child width render:',this.state.childWidth);
     
     return (
       <div style={containerStyle}>

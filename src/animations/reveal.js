@@ -1,4 +1,4 @@
-import { TimelineMax, Power1, Staggered } from "gsap";
+import { TimelineMax, Power1 } from "gsap";
 
 const getDirection = (direction, goingIn) => {
   switch (direction) {

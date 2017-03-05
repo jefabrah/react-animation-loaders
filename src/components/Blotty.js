@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 
 
 class Blotty extends Component {
-  constructor(props) {
-    super(props);
-
-
-  }
 
   componentDidMount() {
     let head = document.head || document.getElementsByTagName('head')[0],
     styleTag = document.createElement('style')
-    styleTag.type = 'text/css'
-    let styleSheet = document.styleSheets[0];
+    styleTag.type = 'text/css';
     
     const keyframes =
     `@-webkit-keyframes blottyLR {
