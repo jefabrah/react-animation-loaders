@@ -1,0 +1,109 @@
+/* blotty wrapper */
+.blotty-box {
+  height: 100%;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* common blot styles */
+.blotty-lr,
+.blotty-ll,
+.blotty-mr,
+.blotty-ml,
+.blotty-sr,
+.blotty-sl {
+  background-color: #797979;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.blotty-ll,
+.blotty-lr {
+  height: 100px;
+  width: 100px;
+}
+
+.blotty-ml,
+.blotty-mr {
+  height: 70px;
+  width: 70px;
+}
+
+.blotty-sl,
+.blotty-sr {
+  height: 40px;
+  width: 40px;
+}
+
+/* blot styling */
+.blotty-lr {
+  transform-origin: 50% 50%;
+  animation: blot-lr 1.5s infinite ease-in-out;
+}
+
+.blotty-ll {
+  transform-origin: 50% 50%;
+  animation: blot-ll 1.5s infinite ease-in-out;
+}
+
+.blotty-mr {
+  transform-origin: 50% 50%;
+  animation: blot-mr 1.5s infinite ease-in-out;
+}
+
+.blotty-ml {
+  transform-origin: 50% 50%;
+  animation: blot-ml 1.5s infinite ease-in-out;
+}
+
+.blotty-sr {
+  transform-origin: 50% 50%;
+  animation: blot-sr 1.5s infinite ease-in-out;
+}
+
+.blotty-sl {
+  transform-origin: 50% 50%;
+  animation: blot-sl 1.5s infinite ease-in-out;
+}
+
+
+/* blot animations */
+@keyframes blot-lr {
+  25%, 75% { transform: translateX(5rem) scale(0.75); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
+@keyframes blot-ll {
+  25%, 75% { transform: translateX(-5rem) scale(0.75); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
+@keyframes blot-mr {
+  25% { transform: translateX(5rem) scale(0.75); }
+  50%, 75% { transform: translateX(15rem) scale(0.6); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
+@keyframes blot-ml {
+  25% { transform: translateX(-5rem) scale(0.75); }
+  50%, 75% { transform: translateX(-15rem) scale(0.6); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
+@keyframes blot-sr {
+  25% { transform: translateX(5rem) scale(0.75); }
+  50% { transform: translateX(15rem) scale(0.6); }
+  75% { transform: translateX(22rem) scale(0.5); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
+@keyframes blot-sl {
+  25% { transform: translateX(-5rem) scale(0.75); }
+  50% { transform: translateX(-15rem) scale(0.6); }
+  75% { transform: translateX(-22rem) scale(0.5); }
+  95% { transform: translateX(0rem) scale(1); }
+}
+
