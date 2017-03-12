@@ -5,6 +5,7 @@ import Loader from './components/Loader';
 import Blotty from './components/Blotty';
 import GSpinner from './components/GSpinner';
 import Pulse from './components/Pulse';
+import AMCDots from './components/AMCDots';
 
 const App = () => (
 
@@ -34,6 +35,13 @@ const App = () => (
 
         {/* Pulse */}
         <Pulse/>
+
+      </Loader>
+      <Loader name="AMCDots" credit="AMC Theatre" creditLinkText="pulsing dots"
+              creditLink="https://www.amctheatres.com/" inspired>
+
+        {/* AMCDots */}
+        <AMCDots/>
 
       </Loader>
     </div>
