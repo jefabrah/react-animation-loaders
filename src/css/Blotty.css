@@ -22,20 +22,20 @@
 
 .blotty-ll,
 .blotty-lr {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
 }
 
 .blotty-ml,
 .blotty-mr {
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
 }
 
 .blotty-sl,
 .blotty-sr {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 
 /* blot styling */
@@ -72,38 +72,38 @@
 
 /* blot animations */
 @keyframes blot-lr {
-  25%, 75% { transform: translateX(5rem) scale(0.75); }
-  95% { transform: translateX(0rem) scale(1); }
+  25%, 75% { transform: translateX(2em) scale(0.75); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
 @keyframes blot-ll {
-  25%, 75% { transform: translateX(-5rem) scale(0.75); }
-  95% { transform: translateX(0rem) scale(1); }
+  25%, 75% { transform: translateX(-2em) scale(0.75); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
 @keyframes blot-mr {
-  25% { transform: translateX(5rem) scale(0.75); }
-  50%, 75% { transform: translateX(15rem) scale(0.6); }
-  95% { transform: translateX(0rem) scale(1); }
+  25% { transform: translateX(2em) scale(0.75); }
+  50%, 75% { transform: translateX(6em) scale(0.6); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
 @keyframes blot-ml {
-  25% { transform: translateX(-5rem) scale(0.75); }
-  50%, 75% { transform: translateX(-15rem) scale(0.6); }
-  95% { transform: translateX(0rem) scale(1); }
+  25% { transform: translateX(-2em) scale(0.75); }
+  50%, 75% { transform: translateX(-6em) scale(0.6); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
 @keyframes blot-sr {
-  25% { transform: translateX(5rem) scale(0.75); }
-  50% { transform: translateX(15rem) scale(0.6); }
-  75% { transform: translateX(22rem) scale(0.5); }
-  95% { transform: translateX(0rem) scale(1); }
+  25% { transform: translateX(2em) scale(0.75); }
+  50% { transform: translateX(6em) scale(0.6); }
+  75% { transform: translateX(9em) scale(0.5); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
 @keyframes blot-sl {
-  25% { transform: translateX(-5rem) scale(0.75); }
-  50% { transform: translateX(-15rem) scale(0.6); }
-  75% { transform: translateX(-22rem) scale(0.5); }
-  95% { transform: translateX(0rem) scale(1); }
+  25% { transform: translateX(-2em) scale(0.75); }
+  50% { transform: translateX(-6em) scale(0.6); }
+  75% { transform: translateX(-9em) scale(0.5); }
+  95% { transform: translateX(0em) scale(1); }
 }
 
