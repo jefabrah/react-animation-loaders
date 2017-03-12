@@ -6,6 +6,7 @@ import Blotty from './components/Blotty';
 import GSpinner from './components/GSpinner';
 import Pulse from './components/Pulse';
 import AMCDots from './components/AMCDots';
+import FBLoadingBar from './components/FBLoadingBar';
 
 const App = () => (
 
@@ -42,6 +43,12 @@ const App = () => (
 
         {/* AMCDots */}
         <AMCDots/>
+
+      </Loader>
+      <Loader name="FBLoadingBar" >
+
+        {/* FBLoadingBar */}
+        <FBLoadingBar/>
 
       </Loader>
     </div>
