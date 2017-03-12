@@ -4,6 +4,7 @@ import './css/App.css';
 import Loader from './components/Loader';
 import Blotty from './components/Blotty';
 import GSpinner from './components/GSpinner';
+import Pulse from './components/Pulse';
 
 const App = () => (
 
@@ -29,7 +30,12 @@ const App = () => (
         <Blotty/>
 
       </Loader>
+      <Loader name="Pulse">
 
+        {/* Pulse */}
+        <Pulse/>
+
+      </Loader>
     </div>
   </div>
 )
