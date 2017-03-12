@@ -1,7 +1,9 @@
 import React from 'react';
 import './css/App.css';
 
+import Loader from './components/Loader';
 import Blotty from './components/Blotty';
+import GSpinner from './components/GSpinner';
 
 const App = () => (
 
@@ -11,14 +13,25 @@ const App = () => (
     </div>
 
 
-      {/* LOADERS */}
+    {/* LOADERS */}
     <div className="loaders">
-      <Blotty/>
+      <Loader name="GSpinner" credit="Christian Eckenrode" creditLinkText="g-spinner"
+              creditLink="https://github.com/ceckenrode/g-spinner">
+
+        {/* G Spinner */}
+        <GSpinner/>
+
+      </Loader>
+      <Loader name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
+              creditLink="https://codepen.io/woodwork/pen/YWjWzo">
+
+        {/* Blotty */}
+        <Blotty/>
+
+      </Loader>
 
     </div>
-
   </div>
-
 )
 
 export default App;
