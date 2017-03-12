@@ -16,14 +16,14 @@ const App = () => (
     {/* LOADERS */}
     <div className="loaders">
       <Loader name="GSpinner" credit="Christian Eckenrode" creditLinkText="g-spinner"
-              creditLink="https://github.com/ceckenrode/g-spinner">
+              creditLink="https://github.com/ceckenrode/g-spinner" credited>
 
         {/* G Spinner */}
         <GSpinner/>
 
       </Loader>
       <Loader name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
-              creditLink="https://codepen.io/woodwork/pen/YWjWzo">
+              creditLink="https://codepen.io/woodwork/pen/YWjWzo" inspired>
 
         {/* Blotty */}
         <Blotty/>
