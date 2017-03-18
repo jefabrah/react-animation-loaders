@@ -1,6 +1,7 @@
 import React from 'react';
+import { StyleRoot } from 'radium';
 
-const Loader = ({ children, name, credit, creditLink, creditLinkText, credited, inspired }) => {
+const LoaderDetail = ({ children, name, credit, creditLink, creditLinkText, credited, inspired }) => {
   const renderCreditDetail = () => {
     if (credited) {
       return (
@@ -22,14 +23,16 @@ const Loader = ({ children, name, credit, creditLink, creditLinkText, credited, 
   }
 
   return (
-    <div className="loader">
-      <div className="loader-heading">
-        <h2>{name}</h2>
-        {renderCreditDetail()}
+    <StyleRoot>
+      <div className="loader">
+        <div className="loader-heading">
+          <h2>{name}</h2>
+          {renderCreditDetail()}
+        </div>
+        {children}
       </div>
-      {children}
-    </div>
+    </StyleRoot>
   )
 }
 
-export default Loader;
+export default LoaderDetail;
