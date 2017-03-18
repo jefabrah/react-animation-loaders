@@ -1,15 +1,66 @@
 import React from 'react';
-import '../css/AMCDots.css';
+import ConfiguredRadium from '../ConfiguredRadium';
+import Radium from 'radium';
 
 
-const AMCDots = () => (
+const AMCDots = () => {
 
-  <div id="amc-dots-box">
-    <div id="amc-dot-l"/>
-    <div id="amc-dot-c"/>
-    <div id="amc-dot-r"/>
-  </div>  
+  const amcDotsKeyframes = Radium.keyframes({
+    '0%': { transform: 'scale(0)' },
+    '30%': { transform: 'scale(1)' },
+    '60%, 100%': { transform: 'scale(0)' }
+  }, 'pulse');
 
-)
+  const amcDotsBoxStyles = {
+    height: '100px',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 
-export default AMCDots;
+  const amcDotLeftStyles = {
+    height: '60px',
+    width: '60px',
+    marginRight: '30px',
+    borderRadius: '50%',
+    backgroundColor: '#222',
+    transform: 'scale(0)',
+    animation: 'x 1.5s ease-in-out infinite',
+    animationName: amcDotsKeyframes
+  }
+
+  const amcDotCenterStyles = {
+    height: '60px',
+    width: '60px',
+    borderRadius: '50%',
+    backgroundColor: '#222',
+    transform: 'scale(0)',
+    animation: 'x 1.5s ease-in-out infinite',
+    animationName: amcDotsKeyframes,
+    animationDelay: '0.15s'
+  }
+
+  const amcDotRightStyles = {
+    height: '60px',
+    width: '60px',
+    marginLeft: '30px',
+    borderRadius: '50%',
+    backgroundColor: '#222',
+    transform: 'scale(0)',
+    animation: 'x 1.5s ease-in-out infinite',
+    animationName: amcDotsKeyframes,
+    animationDelay: '0.30s'
+  }
+
+
+  return (
+    <div style={amcDotsBoxStyles}>
+      <div style={amcDotLeftStyles}/>
+      <div style={amcDotCenterStyles}/>
+      <div style={amcDotRightStyles}/>
+    </div>  
+  )
+}
+
+export default ConfiguredRadium(AMCDots);
