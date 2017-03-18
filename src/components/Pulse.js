@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
 const Pulse = () => {
-  
+
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
     '50%': { background: '#5b5b5b' }
