@@ -9,7 +9,7 @@ const AMCDots = () => {
     '0%': { transform: 'scale(0)' },
     '30%': { transform: 'scale(1)' },
     '60%, 100%': { transform: 'scale(0)' }
-  }, 'pulse');
+  }, 'AMCDotPulse');
 
   const amcDotsBoxStyles = {
     height: '100px',
