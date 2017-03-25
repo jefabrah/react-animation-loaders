@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.css';
 
-import Loader from './components/Loader';
+import LoaderDetail from './components/LoaderDetail';
 import Blotty from './components/Blotty';
 import GSpinner from './components/GSpinner';
 import Pulse from './components/Pulse';
@@ -17,33 +17,33 @@ const App = () => (
 
     {/* LOADERS */}
     <div className="loaders">
-      <Loader name="GSpinner" credit="Christian Eckenrode" creditLinkText="g-spinner"
+      <LoaderDetail name="GSpinner" credit="Christian Eckenrode" creditLinkText="g-spinner"
               creditLink="https://github.com/ceckenrode/g-spinner" credited>
 
         {/* G Spinner */}
         <GSpinner/>
 
-      </Loader>
-      <Loader name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
+      </LoaderDetail>
+      <LoaderDetail name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
               creditLink="https://codepen.io/woodwork/pen/YWjWzo" inspired>
 
         {/* Blotty */}
         <Blotty/>
 
-      </Loader>
-      <Loader name="Pulse">
+      </LoaderDetail>
+      <LoaderDetail name="Pulse">
 
         {/* Pulse */}
         <Pulse/>
 
-      </Loader>
-      <Loader name="AMCDots" credit="AMC Theatre" creditLinkText="pulsing dots"
+      </LoaderDetail>
+      <LoaderDetail name="AMCDots" credit="AMC Theatre" creditLinkText="pulsing dots"
               creditLink="https://www.amctheatres.com/" inspired>
 
         {/* AMCDots */}
         <AMCDots/>
 
-      </Loader>
+      </LoaderDetail>
     </div>
   </div>
 )
