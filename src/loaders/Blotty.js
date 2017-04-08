@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const Blotty = () => {
+const Blotty = ({ loading, children }) => {
 
   const blotLRKeyframes = Radium.keyframes({
     '25%, 75%': { transform: 'translateX(2em) scale(0.75)' },
@@ -145,7 +145,8 @@ const Blotty = () => {
     animationName: blotSLKeyframes
   }
 
-  return (
+  return loading ? (
+
     <div style={blottyBoxStyles} >
       <div style={blottyLRStyles} />
       <div style={blottyLLStyles} />
@@ -154,7 +155,8 @@ const Blotty = () => {
       <div style={blottySRStyles} />
       <div style={blottySLStyles} />
     </div>
-  )
+
+  ) : children
 
 }
 
