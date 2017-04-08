@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const AMCDots = () => {
+const AMCDots = ({ loading, children }) => {
 
   const amcDotsKeyframes = Radium.keyframes({
     '0%': { transform: 'scale(0)' },
@@ -53,14 +53,16 @@ const AMCDots = () => {
     animationDelay: '0.30s'
   }
 
+  return loading ? (
 
-  return (
     <div style={amcDotsBoxStyles}>
       <div style={amcDotLeftStyles}/>
       <div style={amcDotCenterStyles}/>
       <div style={amcDotRightStyles}/>
-    </div>  
-  )
+    </div>
+    
+  )  : children
+  
 }
 
 export default ConfiguredRadium(AMCDots);

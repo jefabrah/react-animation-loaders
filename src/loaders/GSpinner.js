@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const GSpinner = () => {
+const GSpinner = ({ loading, children }) => {
 
   // ANIMATIONS
   const gSpinnerBoxRotate = Radium.keyframes({
@@ -154,7 +154,7 @@ const GSpinner = () => {
   const gSpinnerBoxStyles = {
     position: 'relative',
     margin: '0 auto',
-    width: '100%',
+    width: '220px',
     height: '220px',
     animation: 'x 2s cubic-bezier(0.465, 0.183, 0.153, 0.946) infinite',
     animationName: gSpinnerBoxRotate
@@ -212,16 +212,18 @@ const GSpinner = () => {
     animationName: gSpinnerC4Animation
   }
 
-  return (
+  return loading ? (
+
     <div style={gSpinnerWrapperStyles}>
       <div style={gSpinnerBoxStyles}>
         <div style={gSpinnerC1} />
         <div style={gSpinnerC2} />
         <div style={gSpinnerC3} />
         <div style={gSpinnerC4} />
-      </div>     
+      </div>
     </div>
-  )
+
+  ) : children
 }
 
 export default ConfiguredRadium(GSpinner);

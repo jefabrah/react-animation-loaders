@@ -1,17 +1,16 @@
 import React from 'react';
-import './css/App.css';
 
-import LoaderDetail from './components/LoaderDetail';
-import Blotty from './components/Blotty';
-import GSpinner from './components/GSpinner';
-import Pulse from './components/Pulse';
-import AMCDots from './components/AMCDots';
+import LoaderDetail from './loaders/LoaderDetail';
+import Blotty from './loaders/Blotty';
+import GSpinner from './loaders/GSpinner';
+import Pulse from './loaders/Pulse';
+import AMCDots from './loaders/AMCDots';
 
 const App = () => (
 
   <div className="App">
     <div className="App-header">
-        <h2>React Loader Animations</h2>
+        <h1>React Animation Loaders</h1>
     </div>
 
 

@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const Pulse = () => {
+const Pulse = ({ loading, children }) => {
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
@@ -49,13 +49,15 @@ const Pulse = () => {
   }
   
 
-  return (
+  return loading ? (
+
     <div style={pulseBoxStyles} >
       <div style={pulseLeftStyles} />
       <div style={pulseCenterStyles} />
       <div style={pulseRightStyles} />
     </div>
-  )
+    
+  ) : children
 }
 
 export default ConfiguredRadium(Pulse);
