@@ -20,27 +20,35 @@ const App = () => (
               creditLink="https://github.com/ceckenrode/g-spinner" credited>
 
         {/* G Spinner */}
-        <GSpinner/>
+        <GSpinner loading={true}>
+          <span></span>
+        </GSpinner>
 
       </LoaderDetail>
       <LoaderDetail name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
               creditLink="https://codepen.io/woodwork/pen/YWjWzo" inspired>
 
         {/* Blotty */}
-        <Blotty/>
+        <Blotty loading={true} >
+          <span></span>
+        </Blotty>
 
       </LoaderDetail>
       <LoaderDetail name="Pulse">
 
         {/* Pulse */}
-        <Pulse/>
+        <Pulse loading={true} >
+          <span></span>
+        </Pulse>
 
       </LoaderDetail>
       <LoaderDetail name="AMCDots" credit="AMC Theatre" creditLinkText="pulsing dots"
               creditLink="https://www.amctheatres.com/" inspired>
 
         {/* AMCDots */}
-        <AMCDots/>
+        <AMCDots loading={true} >
+          <span></span>
+        </AMCDots>      
 
       </LoaderDetail>
     </div>
