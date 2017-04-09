@@ -3,7 +3,8 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium, { StyleRoot } from 'radium';
 
 
-const AMCDots = ({ loading, children }) => {
+const AMCDots = ({ loading, children, duration }) => {
+  const animationDuration = duration ? duration : 1.5;
 
   const amcDotsKeyframes = Radium.keyframes({
     '0%': { transform: 'scale(0)' },
@@ -26,7 +27,7 @@ const AMCDots = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
-    animation: 'x 1.5s ease-in-out infinite',
+    animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes
   }
 
@@ -36,7 +37,7 @@ const AMCDots = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
-    animation: 'x 1.5s ease-in-out infinite',
+    animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
     animationDelay: '0.15s'
   }
@@ -48,7 +49,7 @@ const AMCDots = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
-    animation: 'x 1.5s ease-in-out infinite',
+    animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
     animationDelay: '0.30s'
   }
