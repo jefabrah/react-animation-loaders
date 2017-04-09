@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   handleDuration(duration) {
-    console.log(duration);
     this.setState({ duration })
   }
 
