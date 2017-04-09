@@ -3,7 +3,8 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const PulseDetail = ({ loading, children }) => {
+const PulseDetail = ({ loading, children, duration }) => {
+  const animationDuration = duration ? duration : 0.75
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
@@ -23,14 +24,14 @@ const PulseDetail = ({ loading, children }) => {
     height: '33.3px',
     marginRight: '10px',
     background: '#efefef',
-    animation: 'x 750ms infinite',
+    animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes
   }
 
   const pulseCenterStyles = {
     width: '12.5px',
     height: '50px',
-    animation: 'x 750ms infinite',
+    animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
     animationDelay: '250ms',
     display: 'flex',
@@ -43,7 +44,7 @@ const PulseDetail = ({ loading, children }) => {
     height: '33.3px',
     marginLeft: '10px',
     background: '#efefef',
-    animation: 'x 750ms infinite',
+    animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
     animationDelay: '500ms'
   }

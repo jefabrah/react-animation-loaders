@@ -5,6 +5,7 @@ const ConfiguredRadium = (component) => (
     plugins: [
       Radium.Plugins.keyframes,
       Radium.Plugins.prefix,
+      Radium.Plugins.checkProps
     ],
   })(component)
 )

@@ -7,7 +7,6 @@ const LoaderSelect = ({ setLoader, activeLoader }) => (
       <option value="pulse">Pulse</option>
       <option value="amcdots">AMCDots</option>
       <option value="blotty">Blotty</option>
-      <option value="pulse">Pulse</option>
       <option value="gspinner">GSpinner</option>
     </select>
   </div>

@@ -3,7 +3,8 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const GSpinnerDetail = ({ loading, children }) => {
+const GSpinnerDetail = ({ loading, children, duration }) => {
+  const animationDuration = duration ? duration : 4;
 
   // ANIMATIONS
   const gSpinnerBoxRotate = Radium.keyframes({
@@ -156,7 +157,7 @@ const GSpinnerDetail = ({ loading, children }) => {
     margin: '0 auto',
     width: '220px',
     height: '220px',
-    animation: 'x 2s cubic-bezier(0.465, 0.183, 0.153, 0.946) infinite',
+    animation: `x ${animationDuration / 2}s cubic-bezier(0.465, 0.183, 0.153, 0.946) infinite`,
     animationName: gSpinnerBoxRotate
   }
 
@@ -169,7 +170,7 @@ const GSpinnerDetail = ({ loading, children }) => {
     background: '#4384F8',
     top: 'calc(50% - 20px)',
     left: 'calc(50% - 20px)',
-    animation: 'x 4s cubic-bezier(0.645, 0.045, 0.355, 1) infinite',
+    animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC1Animation
   }
 
@@ -182,7 +183,7 @@ const GSpinnerDetail = ({ loading, children }) => {
     background: '#4384F8',
     top: 'calc(50% - 20px)',
     left: 'calc(50% - 20px)',    
-    animation: 'x 4s cubic-bezier(0.645, 0.045, 0.355, 1) infinite',
+    animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC2Animation
   }
 
@@ -195,7 +196,7 @@ const GSpinnerDetail = ({ loading, children }) => {
     background: '#4384F8',
     top: 'calc(50% - 20px)',
     left: 'calc(50% - 20px)',    
-    animation: 'x 4s cubic-bezier(0.645, 0.045, 0.355, 1) infinite',
+    animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC3Animation
   }
 
@@ -208,10 +209,10 @@ const GSpinnerDetail = ({ loading, children }) => {
     background: '#4384F8',
     top: 'calc(50% - 20px)',
     left: 'calc(50% - 20px)',    
-    animation: 'x 4s cubic-bezier(0.645, 0.045, 0.355, 1) infinite',
+    animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC4Animation
   }
-  console.log(typeof children)
+
   return loading ? (
 
     <div style={gSpinnerWrapperStyles}>

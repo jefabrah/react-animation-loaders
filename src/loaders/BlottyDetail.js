@@ -1,9 +1,11 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
-import Radium, { StyleRoot } from 'radium';
+import Radium from 'radium';
 
 
-const Blotty = ({ loading, children }) => {
+const Blotty = ({ loading, children, duration }) => {
+
+  const animationDuration = duration ? duration : 1.5;
 
   const blotLRKeyframes = Radium.keyframes({
     '25%, 75%': { transform: 'translateX(2em) scale(0.75)' },
@@ -61,7 +63,7 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotLRKeyframes,
   }
 
@@ -77,7 +79,7 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotLLKeyframes
   }
 
@@ -93,7 +95,7 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotMRKeyframes
   }
 
@@ -109,7 +111,7 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotMLKeyframes
   }
 
@@ -125,7 +127,7 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotSRKeyframes
   }
 
@@ -141,12 +143,12 @@ const Blotty = ({ loading, children }) => {
     borderRadius: '50%',
     backgroundColor: '#797979',
     transformOrigin: '50% 50%',
-    animation: 'x 1.5s infinite ease-in-out',
+    animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotSLKeyframes
   }
 
   return loading ? (
-    <StyleRoot>
+
       <div style={blottyBoxStyles} >
         <div style={blottyLRStyles} />
         <div style={blottyLLStyles} />
@@ -155,9 +157,9 @@ const Blotty = ({ loading, children }) => {
         <div style={blottySRStyles} />
         <div style={blottySLStyles} />
       </div>
-    </StyleRoot>
 
   ) : children
+
 
 }
 
