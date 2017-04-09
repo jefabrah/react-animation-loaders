@@ -1,58 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
+import LoaderSelect from './demo_components/LoaderSelect';
 
-import LoaderDetail from './loaders/LoaderDetail';
 import Blotty from './loaders/Blotty';
 import GSpinner from './loaders/GSpinner';
 import Pulse from './loaders/Pulse';
 import AMCDots from './loaders/AMCDots';
 
-const App = () => (
 
-  <div className="App">
+class App extends Component {
+  constructor () {
+    super();
+    this.handleActiveName = this.handleActiveName.bind(this);
+
+    this.state = {
+      activeLoader: 'amcdots'
+    };
+  }
+
+  handleActiveName(activeLoader) {
+    this.setState({ activeLoader })
+  }
+
+render() {
+  const activeLoader = this.state.activeLoader;
+
+ return (
+   <div className="App">
     <div className="App-header">
         <h1>React Animation Loaders</h1>
     </div>
 
+    <LoaderSelect setLoader={this.handleActiveName} activeLoader={activeLoader}/>
 
     {/* LOADERS */}
     <div className="loaders">
-      <LoaderDetail name="GSpinner" credit="Christian Eckenrode" creditLinkText="g-spinner"
-              creditLink="https://github.com/ceckenrode/g-spinner" credited>
 
         {/* G Spinner */}
-        <GSpinner loading={true}>
+        <GSpinner loading={activeLoader === 'gspinner'}>
           <span></span>
         </GSpinner>
 
-      </LoaderDetail>
-      <LoaderDetail name="Blotty" credit="Joe Harry" creditLinkText="Samsung TV Loader"
-              creditLink="https://codepen.io/woodwork/pen/YWjWzo" inspired>
-
         {/* Blotty */}
-        <Blotty loading={true} >
+        <Blotty loading={activeLoader === 'blotty'} >
           <span></span>
         </Blotty>
 
-      </LoaderDetail>
-      <LoaderDetail name="Pulse">
-
         {/* Pulse */}
-        <Pulse loading={true} >
+        <Pulse loading={activeLoader === 'pulse'} >
           <span></span>
         </Pulse>
 
-      </LoaderDetail>
-      <LoaderDetail name="AMCDots" credit="AMC Theatre" creditLinkText="pulsing dots"
-              creditLink="https://www.amctheatres.com/" inspired>
-
         {/* AMCDots */}
-        <AMCDots loading={true} >
+        <AMCDots loading={activeLoader === 'amcdots'} >
           <span></span>
         </AMCDots>      
 
-      </LoaderDetail>
     </div>
   </div>
-)
+ )
+}
+  
+}
 
 export default App;
