@@ -1,9 +1,12 @@
 import React from 'react';
 
-const LoaderDurationInput = ({ setDuration, duration }) => (
+const LoaderDurationInput = ({ duration, onDurationChange }) => (
     
   <div className="loader-select">
-    <input type="number" value={duration} onChange={ e => setDuration(Number(e.target.value))}/>
+    <label htmlFor="duration-slider" className="duration-label">Duration: {duration}</label>
+    <input type="range" min={0.25} max={4}
+           id="duration-slider" step={0.25}
+           value={duration} onChange={ e => onDurationChange(e)}/>
   </div>
 )
 
