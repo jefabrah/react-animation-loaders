@@ -40,3 +40,22 @@ body {
   text-decoration: none;
   color: #0000ff;
 }
+
+
+/* loader dropdown */
+.loader-select {
+  display: block;
+}
+
+#loader-select {
+  width: 400px;
+}
+
+/* Slider */
+.duration-label {
+  display: block;
+}
+
+#duration-slider {
+  width: 400px;
+}

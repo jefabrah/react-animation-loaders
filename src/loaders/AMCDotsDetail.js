@@ -1,10 +1,11 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium, { StyleRoot } from 'radium';
+import getDefaultDuration from '../demo_components/get_default_duration';
 
 
-const AMCDots = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : 1.5;
+const AMCDotsDetail = ({ loading, children, duration }) => {
+  const animationDuration = duration ? duration : getDefaultDuration('AMCDots');
 
   const amcDotsKeyframes = Radium.keyframes({
     '0%': { transform: 'scale(0)' },
@@ -67,4 +68,4 @@ const AMCDots = ({ loading, children, duration }) => {
   
 }
 
-export default ConfiguredRadium(AMCDots);
+export default ConfiguredRadium(AMCDotsDetail);

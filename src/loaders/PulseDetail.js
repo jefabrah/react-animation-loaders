@@ -1,10 +1,11 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
+import getDefaultDuration from '../demo_components/get_default_duration';
 
 
 const PulseDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : 0.75
+  const animationDuration = duration ? duration : getDefaultDuration('Pulse');
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
