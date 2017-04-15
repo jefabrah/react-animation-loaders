@@ -33,7 +33,7 @@ const PulseDetail = ({ loading, children, duration }) => {
     height: '50px',
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
-    animationDelay: '250ms',
+    animationDelay: `${animationDuration / 3}s`,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -46,7 +46,7 @@ const PulseDetail = ({ loading, children, duration }) => {
     background: '#efefef',
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
-    animationDelay: '500ms'
+    animationDelay: `${animationDuration / 1.5}s`
   }
   
 
