@@ -5,7 +5,6 @@ import getDefaultDuration from '../demo_components/get_default_duration';
 
 
 const Blotty = ({ loading, children, duration }) => {
-
   const animationDuration = duration ? duration : getDefaultDuration('Blotty');
 
   const blotLRKeyframes = Radium.keyframes({
