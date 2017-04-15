@@ -14,11 +14,9 @@ class App extends Component {
     super();
     this.handleActiveLoader = this.handleActiveLoader.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
-    this.handleActiveName = this.handleActiveName.bind(this);
-    this.handleDuration = this.handleDuration.bind(this);
 
     this.state = {
-      activeLoader: 'blotty',
+      activeLoader: 'Blotty',
       duration: 1.75
     };
   }
