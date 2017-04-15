@@ -1,10 +1,11 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
+import getDefaultDuration from '../demo_components/get_default_duration';
 
 
 const GSpinnerDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : 4;
+  const animationDuration = duration ? duration : getDefaultDuration('GSpinner');
 
   // ANIMATIONS
   const gSpinnerBoxRotate = Radium.keyframes({

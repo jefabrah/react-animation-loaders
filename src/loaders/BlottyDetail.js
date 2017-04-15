@@ -1,11 +1,12 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
+import getDefaultDuration from '../demo_components/get_default_duration';
 
 
 const Blotty = ({ loading, children, duration }) => {
 
-  const animationDuration = duration ? duration : 1.5;
+  const animationDuration = duration ? duration : getDefaultDuration('Blotty');
 
   const blotLRKeyframes = Radium.keyframes({
     '25%, 75%': { transform: 'translateX(2em) scale(0.75)' },
