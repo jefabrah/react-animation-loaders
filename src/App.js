@@ -12,11 +12,11 @@ class App extends Component {
   constructor () {
     super();
     this.handleActiveName = this.handleActiveName.bind(this);
-    this.handleDuration = this.handleDuration.bind(this);
+    this.handleSliderChange = this.handleSliderChange.bind(this);
 
     this.state = {
       activeLoader: 'blotty',
-      duration: 1.75
+      duration: 1.75,
     };
   }
 
@@ -24,8 +24,10 @@ class App extends Component {
     this.setState({ activeLoader })
   }
 
-  handleDuration(duration) {
-    this.setState({ duration })
+  handleSliderChange(e) {
+    const duration = e.target.value;
+    console.log(duration);
+    this.setState({ duration });
   }
 
   render() {
@@ -40,8 +42,9 @@ class App extends Component {
 
         <LoaderSelect setLoader={this.handleActiveName}
           activeLoader={activeLoader}/>
-        <LoaderDurationInput setDuration={this.handleDuration} 
-          duration={duration}/>
+        <LoaderDurationInput onDurationChange={this.handleSliderChange} 
+          duration={duration} />
+
 
         {/* LOADERS */}
         <div className="loaders">
