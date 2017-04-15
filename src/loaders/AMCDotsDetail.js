@@ -39,7 +39,7 @@ const AMCDots = ({ loading, children, duration }) => {
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
-    animationDelay: '0.15s'
+    animationDelay: `${animationDuration / 10}s`
   }
 
   const amcDotRightStyles = {
@@ -51,7 +51,7 @@ const AMCDots = ({ loading, children, duration }) => {
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
-    animationDelay: '0.30s'
+    animationDelay: `${animationDuration / 5}s`
   }
 
   return loading ? (
