@@ -5,7 +5,7 @@ import getDefaultDuration from '../demo_components/get_default_duration';
 
 
 const PulseDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : getDefaultDuration('Pulse')
+  const animationDuration = duration ? duration : getDefaultDuration('Pulse');
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },

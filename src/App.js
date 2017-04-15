@@ -14,10 +14,12 @@ class App extends Component {
     super();
     this.handleActiveLoader = this.handleActiveLoader.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
+    this.handleActiveName = this.handleActiveName.bind(this);
+    this.handleDuration = this.handleDuration.bind(this);
 
     this.state = {
-      activeLoader: 'Blotty',
-      duration: 1.75,
+      activeLoader: 'blotty',
+      duration: 1.75
     };
   }
 
@@ -26,9 +28,10 @@ class App extends Component {
     this.setState({ activeLoader, duration });
   }
 
+
   handleSliderChange(e) {
     const duration = e.target.value;
-    this.setState({ duration });
+    this.setState({ duration })
   }
 
   render() {
