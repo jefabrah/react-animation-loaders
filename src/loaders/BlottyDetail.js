@@ -1,45 +1,61 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
-import getDefaultDuration from '../demo_components/get_default_duration';
 
 
-const Blotty = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : getDefaultDuration('Blotty');
+const Blotty = ({ loading, children, duration, size }) => {
+  const animationDuration = duration ? duration : 1.5;
+  let loaderSize = 50;
+  let translateL = 2;
+  let translateM = 6;
+  let translateS = 9;
+
+  if (size === 'sm') {
+    loaderSize = 25;
+    translateL = 1;
+    translateM = 3;
+    translateS = 4.5;
+  }
+  else if (size === 'lg') {
+    loaderSize = 75;
+    translateL = 3;
+    translateM = 9;
+    translateS = 13.5;
+  }
 
   const blotLRKeyframes = Radium.keyframes({
-    '25%, 75%': { transform: 'translateX(2em) scale(0.75)' },
+    '25%, 75%': { transform: `translateX(${translateL}em) scale(0.75)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotLR');
 
   const blotLLKeyframes = Radium.keyframes({
-    '25%, 75%': { transform: 'translateX(-2em) scale(0.75)' },
+    '25%, 75%': { transform: `translateX(-${translateL}em) scale(0.75)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotLL');
 
   const blotMRKeyframes = Radium.keyframes({
-    '25%': { transform: 'translateX(2em) scale(0.75)' },
-    '50%, 75%': { transform: 'translateX(6em) scale(0.6)' },
+    '25%': { transform: `translateX(${translateL}em) scale(0.75)` },
+    '50%, 75%': { transform: `translateX(${translateM}em) scale(0.6)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotMR');
 
   const blotMLKeyframes = Radium.keyframes({
-    '25%': { transform: 'translateX(-2em) scale(0.75)' },
-    '50%, 75%': { transform: 'translateX(-6em) scale(0.6)' },
+    '25%': { transform: `translateX(-${translateL}em) scale(0.75)` },
+    '50%, 75%': { transform: `translateX(-${translateM}em) scale(0.6)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotML');
 
   const blotSRKeyframes = Radium.keyframes({
-    '25%': { transform: 'translateX(2em) scale(0.75)' },
-    '50%': { transform: 'translateX(6em) scale(0.6)' },
-    '75%': { transform: 'translateX(9em) scale(0.5)' },
+    '25%': { transform: `translateX(${translateL}em) scale(0.75)` },
+    '50%': { transform: `translateX(${translateM}em) scale(0.6)` },
+    '75%': { transform: `translateX(${translateS}em) scale(0.5)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotSR');
 
   const blotSLKeyframes = Radium.keyframes({
-    '25%': { transform: 'translateX(-2em) scale(0.75)' },
-    '50%': { transform: 'translateX(-6em) scale(0.6)' },
-    '75%': { transform: 'translateX(-9em) scale(0.5)' },
+    '25%': { transform: `translateX(-${translateL}em) scale(0.75)` },
+    '50%': { transform: `translateX(-${translateM}em) scale(0.6)` },
+    '75%': { transform: `translateX(-${translateS}em) scale(0.5)` },
     '95%': { transform: 'translateX(0em) scale(1)' }
   }, 'BlotSL');
 
@@ -52,8 +68,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottyLRStyles = {
-    height: '50px',
-    width: '50px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',
@@ -68,8 +84,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottyLLStyles = {
-    height: '50px',
-    width: '50px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',
@@ -84,8 +100,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottyMRStyles = {
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize / 1.25}px`,
+    width: `${loaderSize / 1.25}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',
@@ -100,8 +116,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottyMLStyles = {
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize / 1.25}px`,
+    width: `${loaderSize / 1.25}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',
@@ -116,8 +132,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottySRStyles = {
-    height: '30px',
-    width: '30px',
+    height: `${Math.round(loaderSize / 1.666)}px`,
+    width: `${Math.round(loaderSize / 1.666)}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',
@@ -132,8 +148,8 @@ const Blotty = ({ loading, children, duration }) => {
   }
 
   const blottySLStyles = {
-    height: '30px',
-    width: '30px',
+    height: `${Math.round(loaderSize / 1.666)}px`,
+    width: `${Math.round(loaderSize / 1.666)}px`,
     position: 'absolute',
     margin: 'auto',
     top: '0px',

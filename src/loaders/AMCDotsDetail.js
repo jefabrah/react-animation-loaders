@@ -1,11 +1,23 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium, { StyleRoot } from 'radium';
-import getDefaultDuration from '../demo_components/get_default_duration';
 
 
-const AMCDotsDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : getDefaultDuration('AMCDots');
+const AMCDotsDetail = ({ loading, children, duration, size }) => {
+  const animationDuration = duration ? duration : 1.5;
+  let dotSize = 60;
+  let dotMargin = 30;
+
+  if (size === 'sm') {
+    dotSize = 30;
+    dotMargin = 15;
+  }
+  else if (size === 'lg') {
+    dotSize = 90;
+    dotMargin = 45;
+  }
+
+
 
   const amcDotsKeyframes = Radium.keyframes({
     '0%': { transform: 'scale(0)' },
@@ -22,9 +34,9 @@ const AMCDotsDetail = ({ loading, children, duration }) => {
   }
 
   const amcDotLeftStyles = {
-    height: '60px',
-    width: '60px',
-    marginRight: '30px',
+    height: `${dotSize}px`,
+    width: `${dotSize}px`,
+    marginRight: `${dotMargin}px`,
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
@@ -33,8 +45,8 @@ const AMCDotsDetail = ({ loading, children, duration }) => {
   }
 
   const amcDotCenterStyles = {
-    height: '60px',
-    width: '60px',
+    height: `${dotSize}px`,
+    width: `${dotSize}px`,
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
@@ -44,9 +56,9 @@ const AMCDotsDetail = ({ loading, children, duration }) => {
   }
 
   const amcDotRightStyles = {
-    height: '60px',
-    width: '60px',
-    marginLeft: '30px',
+    height: `${dotSize}px`,
+    width: `${dotSize}px`,
+    marginLeft: `${dotMargin}px`,
     borderRadius: '50%',
     backgroundColor: '#222',
     transform: 'scale(0)',
