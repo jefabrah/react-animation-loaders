@@ -1,11 +1,17 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
-import getDefaultDuration from '../demo_components/get_default_duration';
 
-
-const GSpinnerDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : getDefaultDuration('GSpinner');
+const GSpinnerDetail = ({ loading, children, duration, size }) => {
+  const animationDuration = duration ? duration : 4;
+  let loaderSize = 40;
+  if (size === 'sm') {
+    loaderSize = 20;
+  }
+  else if (size === 'lg') {
+    loaderSize = 80;
+  }
+  const translationHeight = loaderSize * 2;
 
   // ANIMATIONS
   const gSpinnerBoxRotate = Radium.keyframes({
@@ -16,7 +22,7 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
   const gSpinnerC1Animation = Radium.keyframes({
     '0%': {
       background: '#4384F8',
-      transform: 'translateY(-80px)',
+      transform: `translateY(-${translationHeight}px)`,
     },
     '24%': {
       background: '#4384F8',
@@ -27,11 +33,11 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '50%': {
       background: '#FBBD06',
-      transform: 'translateY(-80px)',
+      transform: `translateY(-${translationHeight}px)`,
     },
     '55%': {
       background: '#FBBD06',
-      transform: 'translateY(-80px)',
+      transform: `translateY(-${translationHeight}px)`,
     },
     '74%': {
       background: '#FBBD06',
@@ -42,14 +48,14 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '100%': {
       background: '#4384F8',
-      transform: 'translateY(-80px)'
+      transform: `translateY(-${translationHeight}px)`
     }
   }, 'gSpinnerC1Animation');
 
   const gSpinnerC2Animation = Radium.keyframes({
     '0%': {
       background: '#34A855',
-      transform: 'translateX(-80px)',
+      transform: `translateX(-${translationHeight}px)`,
     },
     '24%': {
       background: '#34A855',
@@ -60,11 +66,11 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '50%': {
       background: '#EA4436',
-      transform: 'translateX(-80px)',
+      transform: `translateX(-${translationHeight}px)`,
     },
     '55%': {
       background: '#EA4436',
-      transform: 'translateX(-80px)',
+      transform: `translateX(-${translationHeight}px)`,
     },
     '74%': {
       background: '#EA4436',
@@ -75,14 +81,14 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '100%': {
       background: '#34A855',
-      transform: 'translateX(-80px)'
+      transform: `translateX(-${translationHeight}px)`
     }
   }, 'gSpinnerC2Animation');
 
   const gSpinnerC3Animation = Radium.keyframes({
     '0%': {
       background: '#FBBD06',
-      transform: 'translateY(80px)',
+      transform: `translateY(${translationHeight}px)`,
     },
     '24%': {
       background: '#FBBD06',
@@ -93,11 +99,11 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '50%': {
       background: '#4384F8',
-      transform: 'translateY(80px)',
+      transform: `translateY(${translationHeight}px)`,
     },
     '55%': {
       background: '#4384F8',
-      transform: 'translateY(80px)',
+      transform: `translateY(${translationHeight}px)`,
     },
     '74%': {
       background: '#4384F8',
@@ -108,14 +114,14 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '100%': {
       background: '#FBBD06',
-      transform: 'translateY(80px)'
+      transform: `translateY(${translationHeight}px)`
     }
   }, 'gSpinnerC3Animation');
 
   const gSpinnerC4Animation = Radium.keyframes({
     '0%': {
       background: '#EA4436',
-      transform: 'translateX(80px)',
+      transform: `translateX(${translationHeight}px)`,
     },
     '24%': {
       background: '#EA4436',
@@ -126,11 +132,11 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '50%': {
       background: '#34A855',
-      transform: 'translateX(80px)',
+      transform: `translateX(${translationHeight}px)`,
     },
     '55%': {
       background: '#34A855',
-      transform: 'translateX(80px)',
+      transform: `translateX(${translationHeight}px)`,
     },
     '74%': {
       background: '#34A855',
@@ -141,7 +147,7 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
     },
     '100%': {
       background: '#EA4436',
-      transform: 'translateX(80px)'
+      transform: `translateX(${translationHeight}px)`
     }
   }, 'gSpinnerC4Animation');
 
@@ -164,52 +170,52 @@ const GSpinnerDetail = ({ loading, children, duration }) => {
 
   const gSpinnerC1 = {
     
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
     background: '#4384F8',
-    top: 'calc(50% - 20px)',
-    left: 'calc(50% - 20px)',
+    top: `calc(50% - ${loaderSize / 2}px)`,
+    left: `calc(50% - ${loaderSize / 2}px)`,
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC1Animation
   }
 
   const gSpinnerC2 = {
     
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
     background: '#4384F8',
-    top: 'calc(50% - 20px)',
-    left: 'calc(50% - 20px)',    
+    top: `calc(50% - ${loaderSize / 2}px)`,
+    left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC2Animation
   }
 
   const gSpinnerC3 = {
     
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
     background: '#4384F8',
-    top: 'calc(50% - 20px)',
-    left: 'calc(50% - 20px)',    
+    top: `calc(50% - ${loaderSize / 2}px)`,
+    left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC3Animation
   }
 
   const gSpinnerC4 = {
     
-    height: '40px',
-    width: '40px',
+    height: `${loaderSize}px`,
+    width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
     background: '#4384F8',
-    top: 'calc(50% - 20px)',
-    left: 'calc(50% - 20px)',    
+    top: `calc(50% - ${loaderSize / 2}px)`,
+    left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
     animationName: gSpinnerC4Animation
   }

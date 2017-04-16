@@ -6,7 +6,7 @@ const LoaderDurationInput = ({ duration, onDurationChange }) => (
     <label htmlFor="duration-slider" className="duration-label">Duration: {duration}</label>
     <input type="range" min={0.25} max={4}
            id="duration-slider" step={0.25}
-           value={duration} onChange={ e => onDurationChange(e)}/>
+           value={duration} onChange={onDurationChange}/>
   </div>
 )
 

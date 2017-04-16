@@ -1,15 +1,15 @@
+import loaders from './loader_info';
+
 export default (loaderName) => {
-  switch (loaderName) {
-    case 'AMCDots':
-      return 1.5;
-    case 'Blotty':
-      return 1.5;
-    case 'Pulse':
-      return 0.75;
-    case 'GSpinner':
-      return 4;
-  
-    default:
-      break;
+  if (loaders[loaderName]) {
+    if (loaders[loaderName].defaultDuration) {
+      return loaders[loaderName].defaultDuration;
+    }
+    else {
+      console.error(`loaders.${loaderName} does not have a valid duration`);
+    }
+  }
+  else {
+    console.error(`${loaderName} is not a valid property of loaders`);
   }
 }

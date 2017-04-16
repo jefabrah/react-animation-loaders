@@ -1,11 +1,28 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
-import getDefaultDuration from '../demo_components/get_default_duration';
 
 
-const PulseDetail = ({ loading, children, duration }) => {
-  const animationDuration = duration ? duration : getDefaultDuration('Pulse');
+const PulseDetail = ({ loading, children, duration, size }) => {
+  const animationDuration = duration ? duration : 0.75;
+
+  let pulseWidth = 12.5;
+  let centerPulseHeight = 50;
+  let sidePulseHeight = 33.3;
+  let sidePulseMargin = 10;
+
+  if (size === 'sm') {
+    pulseWidth = 6.25;
+    centerPulseHeight = 25;
+    sidePulseHeight = 16.65;
+    sidePulseMargin = 5;
+  }
+  else if (size === 'lg') {
+    pulseWidth = 25;
+    centerPulseHeight = 100;
+    sidePulseHeight = 66.6;
+    sidePulseMargin = 20;
+  }
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
@@ -21,17 +38,17 @@ const PulseDetail = ({ loading, children, duration }) => {
   }
 
   const pulseLeftStyles = {
-    width: '12.5px',
-    height: '33.3px',
-    marginRight: '10px',
+    width: `${pulseWidth}px`,
+    height: `${sidePulseHeight}px`,
+    marginRight: `${sidePulseMargin}px`,
     background: '#efefef',
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes
   }
 
   const pulseCenterStyles = {
-    width: '12.5px',
-    height: '50px',
+    width: `${pulseWidth}px`,
+    height: `${centerPulseHeight}px`,
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
     animationDelay: `${animationDuration / 3}s`,
@@ -41,9 +58,9 @@ const PulseDetail = ({ loading, children, duration }) => {
   }
 
   const pulseRightStyles = {
-    width: '12.5px',
-    height: '33.3px',
-    marginLeft: '10px',
+    width: `${pulseWidth}px`,
+    height: `${sidePulseHeight}px`,
+    marginLeft: `${sidePulseMargin}px`,
     background: '#efefef',
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
