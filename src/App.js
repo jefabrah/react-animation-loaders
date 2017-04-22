@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import LoaderSelect from './demo_components/LoaderSelect';
 import LoaderDurationInput from './demo_components/LoaderDurationInput';
 import getDefaultDuration from './demo_components/get_default_duration';
+import getDefaultLoaderColors from './demo_components/get_default_loader_colors';
 import LoaderSize from './demo_components/LoaderSize';
+import LoaderColor from './demo_components/LoaderColor';
 
 import Blotty from './loaders/Blotty';
 import GSpinner from './loaders/GSpinner';
@@ -16,18 +18,29 @@ class App extends Component {
     this.handleActiveLoader = this.handleActiveLoader.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
     this.handleSizeChange = this.handleSizeChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
     const defaultLoader = 'AMCDots';
-
+    
     this.state = {
       activeLoader: defaultLoader,
       activeDuration: getDefaultDuration(defaultLoader),
-      activeSize: 'md'
+      activeSize: 'md',
+      activeColor: getDefaultLoaderColors(defaultLoader)[0],
+      activeLoaderColors: getDefaultLoaderColors(defaultLoader)
     };
   }
 
   handleActiveLoader(activeLoader) {
     const activeDuration = getDefaultDuration(activeLoader);
-    this.setState({ activeLoader, activeDuration });
+    const activeLoaderColors = getDefaultLoaderColors(activeLoader);
+    const activeColor = activeLoaderColors[0];
+    
+    this.setState({ 
+      activeLoader,
+      activeDuration,
+      activeColor,
+      activeLoaderColors
+    });
   }
 
 
@@ -39,6 +52,12 @@ class App extends Component {
   handleSizeChange(e) {
     const activeSize = e.target.value;
     this.setState({ activeSize });
+  }
+
+  handleColorChange(color) {
+    const activeColor = color.rgb.a === 1 ? color.hex : color.rgb;
+    const activeLoaderColors = this.state.activeLoaderColors.map(() => activeColor);
+    this.setState({ activeColor, activeLoaderColors });
   }
 
   render() {
@@ -56,7 +75,7 @@ class App extends Component {
         <LoaderDurationInput onDurationChange={this.handleSliderChange} 
           duration={duration} activeLoader={activeLoader}/>
         <LoaderSize setSize={this.handleSizeChange} size={this.state.activeSize} />
-
+        <LoaderColor setColor={this.handleColorChange} color={this.state.activeColor}/>
 
         {/* LOADERS */}
         <div className="loaders">
@@ -81,6 +100,7 @@ class App extends Component {
 
           {/* AMCDots */}
           <AMCDots loading={activeLoader === 'AMCDots'}
+            loaderColors={this.state.activeLoaderColors}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </AMCDots>
