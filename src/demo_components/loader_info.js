@@ -9,7 +9,8 @@ export default {
     defaultDuration: 0.75
   },
   AMCDots: {
-    defaultDuration: 1.5
+    defaultDuration: 1.5,
+    defaultColors: ['#222','#222','#222']
   }
 }
 

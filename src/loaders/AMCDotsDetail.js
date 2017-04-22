@@ -1,20 +1,34 @@
 import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
-import Radium, { StyleRoot } from 'radium';
+import Radium from 'radium';
 
 
-const AMCDotsDetail = ({ loading, children, duration, size }) => {
+const AMCDotsDetail = ({ loading, children, duration, size, loaderColors }) => {
+  // determine colors
+  const colors = {
+    loaderColors: ['#222','#222','#222'],
+  };
+  
+  if (loaderColors && loaderColors.length === 3) {
+    colors.loaderColors = loaderColors;
+  }
+
+  // determine duration
   const animationDuration = duration ? duration : 1.5;
+
+  // determine sizes
   let dotSize = 60;
   let dotMargin = 30;
 
-  if (size === 'sm') {
-    dotSize = 30;
-    dotMargin = 15;
-  }
-  else if (size === 'lg') {
-    dotSize = 90;
-    dotMargin = 45;
+  if (size) {
+    if (size === 'sm') {
+      dotSize = 30;
+      dotMargin = 15;
+    }
+    else if (size === 'lg') {
+      dotSize = 90;
+      dotMargin = 45;
+    }
   }
 
 
@@ -38,7 +52,7 @@ const AMCDotsDetail = ({ loading, children, duration, size }) => {
     width: `${dotSize}px`,
     marginRight: `${dotMargin}px`,
     borderRadius: '50%',
-    backgroundColor: '#222',
+    backgroundColor: colors.loaderColors[0],
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes
@@ -48,7 +62,7 @@ const AMCDotsDetail = ({ loading, children, duration, size }) => {
     height: `${dotSize}px`,
     width: `${dotSize}px`,
     borderRadius: '50%',
-    backgroundColor: '#222',
+    backgroundColor: colors.loaderColors[1],
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
@@ -60,7 +74,7 @@ const AMCDotsDetail = ({ loading, children, duration, size }) => {
     width: `${dotSize}px`,
     marginLeft: `${dotMargin}px`,
     borderRadius: '50%',
-    backgroundColor: '#222',
+    backgroundColor: colors.loaderColors[1],
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
@@ -68,13 +82,12 @@ const AMCDotsDetail = ({ loading, children, duration, size }) => {
   }
 
   return loading ? (
-    <StyleRoot>
+
       <div style={amcDotsBoxStyles}>
         <div style={amcDotLeftStyles}/>
         <div style={amcDotCenterStyles}/>
         <div style={amcDotRightStyles}/>
       </div>
-    </StyleRoot>
 
   )  : children
   
