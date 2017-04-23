@@ -89,6 +89,9 @@ class App extends Component {
   }
 
   handlePreview() {
+    if (this.state.isFixed === 'false') {
+      return;
+    }
     this.setState({ preview: true });
     setTimeout(() => {
       if (this.state.preview) {
