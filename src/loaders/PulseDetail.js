@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const PulseDetail = ({ duration, size, loaderColor, backgroundColor }) => {
+const PulseDetail = ({ duration, size, loaderColor, backgroundColor, isFixed }) => {
   // determine colors
   const colors = {
     loaderColor: '#5b5b5b',
@@ -45,13 +45,24 @@ const PulseDetail = ({ duration, size, loaderColor, backgroundColor }) => {
     '50%': { background: colors.loaderColor }
   }, 'pulse');
 
-  const pulseBoxStyles = {
+  let pulseBoxStyles = {
     width: '100%',
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.backgroundColor
+  }
+
+  if (isFixed) {
+    pulseBoxStyles = Object.assign(pulseBoxStyles, {
+      top: '0px',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+      position: 'fixed',
+      zIndex: '2147483638'
+    })
   }
 
   const pulseLeftStyles = {

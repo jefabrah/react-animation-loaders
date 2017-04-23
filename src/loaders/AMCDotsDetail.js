@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const AMCDotsDetail = ({ duration, size, loaderColor, backgroundColor }) => {
+const AMCDotsDetail = ({ duration, size, loaderColor, backgroundColor, isFixed }) => {
   // determine colors
   const colors = {
     loaderColor: '#222',
@@ -44,13 +44,24 @@ const AMCDotsDetail = ({ duration, size, loaderColor, backgroundColor }) => {
     '60%, 100%': { transform: 'scale(0)' }
   }, 'AMCDotPulse');
 
-  const amcDotsBoxStyles = {
+  let amcDotsBoxStyles = {
     height: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.backgroundColor
+  }
+
+  if (isFixed) {
+    amcDotsBoxStyles = Object.assign(amcDotsBoxStyles, {
+      top: '0px',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+      position: 'fixed',
+      zIndex: '2147483638'
+    })
   }
 
   const amcDotLeftStyles = {

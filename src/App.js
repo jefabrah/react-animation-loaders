@@ -6,6 +6,7 @@ import getDefaultLoaderColors from './demo_components/get_default_loader_colors'
 import LoaderSize from './demo_components/LoaderSize';
 import LoaderColor from './demo_components/LoaderColor';
 import BackgroundColor from './demo_components/BackgroundColor';
+import LoaderFixed from './demo_components/LoaderFixed';
 
 import Blotty from './loaders/Blotty';
 import GSpinner from './loaders/GSpinner';
@@ -21,14 +22,17 @@ class App extends Component {
     this.handleSizeChange = this.handleSizeChange.bind(this);
     this.handleLoaderColorChange = this.handleLoaderColorChange.bind(this);
     this.handleBackgroundColorChange = this.handleBackgroundColorChange.bind(this);
-    const defaultLoader = 'Pulse';
+    this.handleFixed = this.handleFixed.bind(this);
+
+    const defaultLoader = 'GSpinner';
     
     this.state = {
       activeLoader: defaultLoader,
       activeDuration: getDefaultDuration(defaultLoader),
       activeSize: 'md',
       activeLoaderColor: getDefaultLoaderColors(defaultLoader)[0],
-      activeBackgroundColor: '#fff'
+      activeBackgroundColor: '#fff',
+      isFixed: 'true'
     };
   }
 
@@ -76,6 +80,11 @@ class App extends Component {
     this.setState({ activeBackgroundColor });
   }
 
+  handleFixed(e) {
+    const isFixed = e.target.value;
+    this.setState({ isFixed });
+  }
+
   render() {
     const activeLoader = this.state.activeLoader;
     const duration = this.state.activeDuration;
@@ -85,14 +94,16 @@ class App extends Component {
         <div className="App-header">
             <h1>React Animation Loaders</h1>
         </div>
-
-        <LoaderSelect setLoader={this.handleActiveLoader}
+        <div className="controls">
+          <LoaderSelect setLoader={this.handleActiveLoader}
           activeLoader={activeLoader}/>
-        <LoaderDurationInput onDurationChange={this.handleSliderChange} 
-          duration={duration} activeLoader={activeLoader}/>
-        <LoaderSize setSize={this.handleSizeChange} size={this.state.activeSize} />
-        <LoaderColor setColor={this.handleLoaderColorChange} color={this.state.activeLoaderColor}/>
-        <BackgroundColor setColor={this.handleBackgroundColorChange} color={this.state.activeBackgroundColor}/>
+          <LoaderDurationInput onDurationChange={this.handleSliderChange} 
+            duration={duration} activeLoader={activeLoader}/>
+          <LoaderSize setSize={this.handleSizeChange} size={this.state.activeSize} />
+          <LoaderFixed setFixed={this.handleFixed} isFixed={this.state.isFixed} />
+          <LoaderColor setColor={this.handleLoaderColorChange} color={this.state.activeLoaderColor}/>
+          <BackgroundColor setColor={this.handleBackgroundColorChange} color={this.state.activeBackgroundColor}/>
+        </div>
 
         {/* LOADERS */}
         <div className="loaders">
@@ -100,6 +111,7 @@ class App extends Component {
             {/* G Spinner */}
           <GSpinner loading={activeLoader === 'GSpinner'}
             loaderColor={this.state.activeLoaderColor}
+            isFixed={this.state.isFixed && this.state.preview}
             backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
@@ -108,6 +120,7 @@ class App extends Component {
           {/* Blotty */}
           <Blotty loading={activeLoader === 'Blotty'}
             loaderColor={this.state.activeLoaderColor}
+            isFixed={this.state.isFixed && this.state.preview}
             backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
@@ -116,6 +129,7 @@ class App extends Component {
           {/* Pulse */}
           <Pulse loading={activeLoader === 'Pulse'}
             loaderColor={this.state.activeLoaderColor}
+            isFixed={this.state.isFixed && this.state.preview}
             backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
@@ -124,12 +138,14 @@ class App extends Component {
           {/* AMCDots */}
           <AMCDots loading={activeLoader === 'AMCDots'}
             loaderColor={this.state.activeLoaderColor}
+            isFixed={this.state.isFixed && this.state.preview}
             backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </AMCDots>
-
+          
         </div>
+        
       </div>
     )
   }

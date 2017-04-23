@@ -3,7 +3,7 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const Blotty = ({ duration, size, loaderColor, backgroundColor }) => {
+const Blotty = ({ duration, size, loaderColor, backgroundColor, isFixed }) => {
   // determine colors
   const colors = {
     loaderColor: '#797979',
@@ -76,12 +76,23 @@ const Blotty = ({ duration, size, loaderColor, backgroundColor }) => {
   }, 'BlotSL');
 
 
-  const blottyBoxStyles = {
+  let blottyBoxStyles = {
     height: '100%',
     width: '100%',
     position: 'relative',
     minHeight: '100px',
     backgroundColor: backgroundColor
+  }
+
+  if (isFixed) {
+    blottyBoxStyles = Object.assign(blottyBoxStyles, {
+      top: '0px',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+      position: 'fixed',
+      zIndex: '2147483638'
+    })
   }
 
   const blottyLRStyles = {

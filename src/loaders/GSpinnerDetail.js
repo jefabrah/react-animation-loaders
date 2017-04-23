@@ -2,7 +2,7 @@ import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
-const GSpinnerDetail = ({ duration, size, loaderColor, backgroundColor }) => {
+const GSpinnerDetail = ({ duration, size, loaderColor, backgroundColor, isFixed }) => {
   // determine colors
   const colors = {
     loaderColor: '#cecece',
@@ -169,11 +169,22 @@ const GSpinnerDetail = ({ duration, size, loaderColor, backgroundColor }) => {
 
 
   // STYLING
-  const gSpinnerWrapperStyles = {
+  let gSpinnerWrapperStyles = {
     position: 'relative',
     width: '100%',
     height: '100%',
     backgroundColor: colors.backgroundColor
+  }
+
+  if (isFixed) {
+    gSpinnerWrapperStyles = Object.assign(gSpinnerWrapperStyles, {
+      top: '0px',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+      position: 'fixed',
+      zIndex: '2147483638'
+    })
   }
 
   const gSpinnerBoxStyles = {
