@@ -5,6 +5,7 @@ import getDefaultDuration from './demo_components/get_default_duration';
 import getDefaultLoaderColors from './demo_components/get_default_loader_colors';
 import LoaderSize from './demo_components/LoaderSize';
 import LoaderColor from './demo_components/LoaderColor';
+import BackgroundColor from './demo_components/BackgroundColor';
 
 import Blotty from './loaders/Blotty';
 import GSpinner from './loaders/GSpinner';
@@ -18,28 +19,27 @@ class App extends Component {
     this.handleActiveLoader = this.handleActiveLoader.bind(this);
     this.handleSliderChange = this.handleSliderChange.bind(this);
     this.handleSizeChange = this.handleSizeChange.bind(this);
-    this.handleColorChange = this.handleColorChange.bind(this);
-    const defaultLoader = 'AMCDots';
+    this.handleLoaderColorChange = this.handleLoaderColorChange.bind(this);
+    this.handleBackgroundColorChange = this.handleBackgroundColorChange.bind(this);
+    const defaultLoader = 'Pulse';
     
     this.state = {
       activeLoader: defaultLoader,
       activeDuration: getDefaultDuration(defaultLoader),
       activeSize: 'md',
-      activeColor: getDefaultLoaderColors(defaultLoader)[0],
-      activeLoaderColors: getDefaultLoaderColors(defaultLoader)
+      activeLoaderColor: getDefaultLoaderColors(defaultLoader)[0],
+      activeBackgroundColor: '#fff'
     };
   }
 
   handleActiveLoader(activeLoader) {
     const activeDuration = getDefaultDuration(activeLoader);
-    const activeLoaderColors = getDefaultLoaderColors(activeLoader);
-    const activeColor = activeLoaderColors[0];
+    const activeLoaderColor = getDefaultLoaderColors(activeLoader)[0];
 
     this.setState({ 
       activeLoader,
       activeDuration,
-      activeColor,
-      activeLoaderColors
+      activeLoaderColor
     });
   }
 
@@ -54,16 +54,26 @@ class App extends Component {
     this.setState({ activeSize });
   }
 
-  handleColorChange(color) {
-    let activeColor;
+  handleLoaderColorChange(color) {
+    let activeLoaderColor;
     if (color.rgb.a === 1) {
-      activeColor = color.hex;
+      activeLoaderColor = color.hex;
     } else {
       const { r, g, b, a } = color.rgb;
-      activeColor = `rgba(${r},${g},${b},${a})`
+      activeLoaderColor = `rgba(${r},${g},${b},${a})`
     }
-    const activeLoaderColors = this.state.activeLoaderColors.map(() => activeColor);
-    this.setState({ activeColor, activeLoaderColors });
+    this.setState({ activeLoaderColor });
+  }
+
+  handleBackgroundColorChange(color) {
+    let activeBackgroundColor;
+    if (color.rgb.a === 1) {
+      activeBackgroundColor = color.hex;
+    } else {
+      const { r, g, b, a } = color.rgb;
+      activeBackgroundColor = `rgba(${r},${g},${b},${a})`
+    }
+    this.setState({ activeBackgroundColor });
   }
 
   render() {
@@ -81,35 +91,40 @@ class App extends Component {
         <LoaderDurationInput onDurationChange={this.handleSliderChange} 
           duration={duration} activeLoader={activeLoader}/>
         <LoaderSize setSize={this.handleSizeChange} size={this.state.activeSize} />
-        <LoaderColor setColor={this.handleColorChange} color={this.state.activeColor}/>
+        <LoaderColor setColor={this.handleLoaderColorChange} color={this.state.activeLoaderColor}/>
+        <BackgroundColor setColor={this.handleBackgroundColorChange} color={this.state.activeBackgroundColor}/>
 
         {/* LOADERS */}
         <div className="loaders">
 
             {/* G Spinner */}
           <GSpinner loading={activeLoader === 'GSpinner'}
-            loaderColor={this.state.activeColor}
+            loaderColor={this.state.activeLoaderColor}
+            backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </GSpinner>
 
           {/* Blotty */}
           <Blotty loading={activeLoader === 'Blotty'}
-            loaderColor={this.state.activeColor}
+            loaderColor={this.state.activeLoaderColor}
+            backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </Blotty>
 
           {/* Pulse */}
           <Pulse loading={activeLoader === 'Pulse'}
-            loaderColor={this.state.activeColor}
+            loaderColor={this.state.activeLoaderColor}
+            backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </Pulse>
 
           {/* AMCDots */}
           <AMCDots loading={activeLoader === 'AMCDots'}
-            loaderColor={this.state.activeColor}
+            loaderColor={this.state.activeLoaderColor}
+            backgroundColor={this.state.activeBackgroundColor}
             duration={duration} size={this.state.activeSize}>
             <span></span>
           </AMCDots>

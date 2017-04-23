@@ -2,14 +2,18 @@ import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
-const GSpinnerDetail = ({ loading, children, duration, size, loaderColor }) => {
+const GSpinnerDetail = ({ duration, size, loaderColor, backgroundColor }) => {
   // determine colors
   const colors = {
-    loaderColor: '#cecece'
+    loaderColor: '#cecece',
+    backgroundColor: '#fff'
   }
 
   if (loaderColor && typeof loaderColor === 'string') {
     colors.loaderColor = loaderColor;
+  }
+  if (backgroundColor && typeof backgroundColor === 'string') {
+    colors.backgroundColor = backgroundColor;
   }
   
   // determine duration
@@ -168,14 +172,15 @@ const GSpinnerDetail = ({ loading, children, duration, size, loaderColor }) => {
   const gSpinnerWrapperStyles = {
     position: 'relative',
     width: '100%',
-    height: '220px',
+    height: '100%',
+    backgroundColor: colors.backgroundColor
   }
 
   const gSpinnerBoxStyles = {
     position: 'relative',
     margin: '0 auto',
-    width: '220px',
-    height: '220px',
+    width: '100%',
+    height: '100%',
     animation: `x ${animationDuration / 2}s cubic-bezier(0.465, 0.183, 0.153, 0.946) infinite`,
     animationName: gSpinnerBoxRotate
   }
@@ -232,7 +237,7 @@ const GSpinnerDetail = ({ loading, children, duration, size, loaderColor }) => {
     animationName: gSpinnerC4Animation
   }
 
-  return loading ? (
+  return (
 
     <div style={gSpinnerWrapperStyles}>
       <div style={gSpinnerBoxStyles}>
@@ -243,7 +248,7 @@ const GSpinnerDetail = ({ loading, children, duration, size, loaderColor }) => {
       </div>
     </div>
 
-  ) : children
+  )
 }
 
 export default ConfiguredRadium(GSpinnerDetail);

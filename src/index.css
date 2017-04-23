@@ -17,9 +17,13 @@ body {
 
 .loaders {
   padding: 0;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 600px;
   background-color: white;
+  border: solid 2px #cecece;
+  margin-right: 50px;
+  margin-top: 50px;
+  float: right;
 }
 
 .loader-heading {
@@ -58,4 +62,9 @@ body {
 
 #duration-slider {
   width: 400px;
+}
+
+/* Color Pickers */
+.App > .chrome-picker {
+  float: left;
 }

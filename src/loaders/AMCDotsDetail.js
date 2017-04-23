@@ -3,16 +3,21 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const AMCDotsDetail = ({ loading, children, duration, size, loaderColor }) => {
+const AMCDotsDetail = ({ duration, size, loaderColor, backgroundColor }) => {
   // determine colors
   const colors = {
     loaderColor: '#222',
+    backgroundColor: '#fff'
   };
 
   if (loaderColor && typeof loaderColor === 'string') {
     colors.loaderColor = loaderColor;
   }
-
+  if (backgroundColor && typeof backgroundColor === 'string') {
+    colors.backgroundColor = backgroundColor;
+  }
+  console.log(colors.backgroundColor);
+  console.log(backgroundColor)
   // determine duration
   const animationDuration = duration ? duration : 1.5;
 
@@ -40,11 +45,12 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColor }) => {
   }, 'AMCDotPulse');
 
   const amcDotsBoxStyles = {
-    height: '100px',
+    height: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.backgroundColor
   }
 
   const amcDotLeftStyles = {
@@ -81,7 +87,7 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColor }) => {
     animationDelay: `${animationDuration / 5}s`
   }
 
-  return loading ? (
+  return (
 
       <div style={amcDotsBoxStyles}>
         <div style={amcDotLeftStyles}/>
@@ -89,7 +95,7 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColor }) => {
         <div style={amcDotRightStyles}/>
       </div>
 
-  )  : children
+  )
   
 }
 

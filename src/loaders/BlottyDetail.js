@@ -3,14 +3,18 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const Blotty = ({ loading, children, duration, size, loaderColor }) => {
+const Blotty = ({ duration, size, loaderColor, backgroundColor }) => {
   // determine colors
   const colors = {
-    loaderColor: '#797979'
+    loaderColor: '#797979',
+    backgroundColor: '#fff'
   }
 
   if (loaderColor && typeof loaderColor === 'string') {
     colors.loaderColor = loaderColor;
+  }
+  if (backgroundColor && typeof backgroundColor === 'string') {
+    colors.backgroundColor = backgroundColor;
   }
   
   // determine duration
@@ -76,7 +80,8 @@ const Blotty = ({ loading, children, duration, size, loaderColor }) => {
     height: '100%',
     width: '100%',
     position: 'relative',
-    minHeight: '100px'
+    minHeight: '100px',
+    backgroundColor: backgroundColor
   }
 
   const blottyLRStyles = {
@@ -175,7 +180,7 @@ const Blotty = ({ loading, children, duration, size, loaderColor }) => {
     animationName: blotSLKeyframes
   }
 
-  return loading ? (
+  return (
 
       <div style={blottyBoxStyles} >
         <div style={blottyLRStyles} />
@@ -186,7 +191,7 @@ const Blotty = ({ loading, children, duration, size, loaderColor }) => {
         <div style={blottySLStyles} />
       </div>
 
-  ) : children
+  )
 
 
 }
