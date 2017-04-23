@@ -3,8 +3,20 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const Blotty = ({ loading, children, duration, size }) => {
+const Blotty = ({ loading, children, duration, size, loaderColor }) => {
+  // determine colors
+  const colors = {
+    loaderColor: '#797979'
+  }
+
+  if (loaderColor && typeof loaderColor === 'string') {
+    colors.loaderColor = loaderColor;
+  }
+  
+  // determine duration
   const animationDuration = duration ? duration : 1.5;
+
+  // determine size
   let loaderSize = 50;
   let translateL = 2;
   let translateM = 6;
@@ -77,7 +89,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotLRKeyframes,
@@ -93,7 +105,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotLLKeyframes
@@ -109,7 +121,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotMRKeyframes
@@ -125,7 +137,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotMLKeyframes
@@ -141,7 +153,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotSRKeyframes
@@ -157,7 +169,7 @@ const Blotty = ({ loading, children, duration, size }) => {
     right: '0px',
     left: '0px',
     borderRadius: '50%',
-    backgroundColor: '#797979',
+    backgroundColor: colors.loaderColor,
     transformOrigin: '50% 50%',
     animation: `x ${animationDuration}s infinite ease-in-out`,
     animationName: blotSLKeyframes
