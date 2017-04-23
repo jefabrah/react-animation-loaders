@@ -3,13 +3,17 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
+const PulseDetail = ({ duration, size, loaderColor, backgroundColor, isFixed }) => {
   // determine colors
   const colors = {
-    loaderColor: '#5b5b5b'
+    loaderColor: '#5b5b5b',
+    backgroundColor: '#fff'
   }
   if (loaderColor && typeof loaderColor === 'string') {
     colors.loaderColor = loaderColor;
+  }
+  if (backgroundColor && typeof backgroundColor === 'string') {
+    colors.backgroundColor = backgroundColor;
   }
   
   // determine duration
@@ -41,12 +45,24 @@ const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
     '50%': { background: colors.loaderColor }
   }, 'pulse');
 
-  const pulseBoxStyles = {
+  let pulseBoxStyles = {
     width: '100%',
-    height: '100px',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: colors.backgroundColor
+  }
+
+  if (isFixed) {
+    pulseBoxStyles = Object.assign(pulseBoxStyles, {
+      top: '0px',
+      bottom: '0px',
+      left: '0px',
+      right: '0px',
+      position: 'fixed',
+      zIndex: '2147483638'
+    })
   }
 
   const pulseLeftStyles = {
@@ -64,6 +80,7 @@ const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
     animation: `x ${animationDuration}s infinite`,
     animationName: pulseKeyframes,
     animationDelay: `${animationDuration / 3}s`,
+    background: '#efefef',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -80,7 +97,7 @@ const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
   }
   
 
-  return loading ? (
+  return (
 
     <div style={pulseBoxStyles} >
       <div style={pulseLeftStyles} />
@@ -88,7 +105,7 @@ const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
       <div style={pulseRightStyles} />
     </div>
     
-  ) : children
+  )
 }
 
 export default ConfiguredRadium(PulseDetail);
