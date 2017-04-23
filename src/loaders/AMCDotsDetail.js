@@ -3,14 +3,14 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const AMCDotsDetail = ({ loading, children, duration, size, loaderColors }) => {
+const AMCDotsDetail = ({ loading, children, duration, size, loaderColor }) => {
   // determine colors
   const colors = {
-    loaderColors: ['#222','#222','#222'],
+    loaderColor: '#222',
   };
-  
-  if (loaderColors && loaderColors.length === 3) {
-    colors.loaderColors = loaderColors;
+
+  if (loaderColor && typeof loaderColor === 'string') {
+    colors.loaderColor = loaderColor;
   }
 
   // determine duration
@@ -52,7 +52,7 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColors }) => {
     width: `${dotSize}px`,
     marginRight: `${dotMargin}px`,
     borderRadius: '50%',
-    backgroundColor: colors.loaderColors[0],
+    backgroundColor: colors.loaderColor,
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes
@@ -62,7 +62,7 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColors }) => {
     height: `${dotSize}px`,
     width: `${dotSize}px`,
     borderRadius: '50%',
-    backgroundColor: colors.loaderColors[1],
+    backgroundColor: colors.loaderColor,
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
@@ -74,7 +74,7 @@ const AMCDotsDetail = ({ loading, children, duration, size, loaderColors }) => {
     width: `${dotSize}px`,
     marginLeft: `${dotMargin}px`,
     borderRadius: '50%',
-    backgroundColor: colors.loaderColors[1],
+    backgroundColor: colors.loaderColor,
     transform: 'scale(0)',
     animation: `x ${animationDuration}s ease-in-out infinite`,
     animationName: amcDotsKeyframes,
