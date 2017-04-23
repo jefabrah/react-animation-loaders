@@ -2,8 +2,20 @@ import React from 'react';
 import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
-const GSpinnerDetail = ({ loading, children, duration, size }) => {
+const GSpinnerDetail = ({ loading, children, duration, size, loaderColor }) => {
+  // determine colors
+  const colors = {
+    loaderColor: '#cecece'
+  }
+
+  if (loaderColor && typeof loaderColor === 'string') {
+    colors.loaderColor = loaderColor;
+  }
+  
+  // determine duration
   const animationDuration = duration ? duration : 4;
+
+  // determine size
   let loaderSize = 40;
   if (size === 'sm') {
     loaderSize = 20;
@@ -21,132 +33,132 @@ const GSpinnerDetail = ({ loading, children, duration, size }) => {
 
   const gSpinnerC1Animation = Radium.keyframes({
     '0%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: `translateY(-${translationHeight}px)`,
     },
     '24%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
     },
     '25%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: 'translateY(0px)',
     },
     '50%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: `translateY(-${translationHeight}px)`,
     },
     '55%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: `translateY(-${translationHeight}px)`,
     },
     '74%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
     },
     '75%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: 'translateY(0px)',
     },
     '100%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: `translateY(-${translationHeight}px)`
     }
   }, 'gSpinnerC1Animation');
 
   const gSpinnerC2Animation = Radium.keyframes({
     '0%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: `translateX(-${translationHeight}px)`,
     },
     '24%': {
-      background: '#34A855',
+      background: colors.loaderColor,
     },
     '25%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: 'translateX(0px)',
     },
     '50%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: `translateX(-${translationHeight}px)`,
     },
     '55%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: `translateX(-${translationHeight}px)`,
     },
     '74%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
     },
     '75%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: 'translateX(0px)',
     },
     '100%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: `translateX(-${translationHeight}px)`
     }
   }, 'gSpinnerC2Animation');
 
   const gSpinnerC3Animation = Radium.keyframes({
     '0%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: `translateY(${translationHeight}px)`,
     },
     '24%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
     },
     '25%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: 'translateY(0px)',
     },
     '50%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: `translateY(${translationHeight}px)`,
     },
     '55%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
       transform: `translateY(${translationHeight}px)`,
     },
     '74%': {
-      background: '#4384F8',
+      background: colors.loaderColor,
     },
     '75%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: 'translateY(0px)',
     },
     '100%': {
-      background: '#FBBD06',
+      background: colors.loaderColor,
       transform: `translateY(${translationHeight}px)`
     }
   }, 'gSpinnerC3Animation');
 
   const gSpinnerC4Animation = Radium.keyframes({
     '0%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: `translateX(${translationHeight}px)`,
     },
     '24%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
     },
     '25%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: 'translateX(0px)',
     },
     '50%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: `translateX(${translationHeight}px)`,
     },
     '55%': {
-      background: '#34A855',
+      background: colors.loaderColor,
       transform: `translateX(${translationHeight}px)`,
     },
     '74%': {
-      background: '#34A855',
+      background: colors.loaderColor,
     },
     '75%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: 'translateX(0px)',
     },
     '100%': {
-      background: '#EA4436',
+      background: colors.loaderColor,
       transform: `translateX(${translationHeight}px)`
     }
   }, 'gSpinnerC4Animation');
@@ -174,7 +186,7 @@ const GSpinnerDetail = ({ loading, children, duration, size }) => {
     width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
-    background: '#4384F8',
+    background: colors.loaderColor,
     top: `calc(50% - ${loaderSize / 2}px)`,
     left: `calc(50% - ${loaderSize / 2}px)`,
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
@@ -187,7 +199,7 @@ const GSpinnerDetail = ({ loading, children, duration, size }) => {
     width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
-    background: '#4384F8',
+    background: colors.loaderColor,
     top: `calc(50% - ${loaderSize / 2}px)`,
     left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
@@ -200,7 +212,7 @@ const GSpinnerDetail = ({ loading, children, duration, size }) => {
     width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
-    background: '#4384F8',
+    background: colors.loaderColor,
     top: `calc(50% - ${loaderSize / 2}px)`,
     left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,
@@ -213,7 +225,7 @@ const GSpinnerDetail = ({ loading, children, duration, size }) => {
     width: `${loaderSize}px`,
     position: 'absolute',
     borderRadius: '50%',
-    background: '#4384F8',
+    background: colors.loaderColor,
     top: `calc(50% - ${loaderSize / 2}px)`,
     left: `calc(50% - ${loaderSize / 2}px)`,    
     animation: `x ${animationDuration}s cubic-bezier(0.645, 0.045, 0.355, 1) infinite`,

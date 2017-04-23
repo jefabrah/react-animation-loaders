@@ -3,30 +3,42 @@ import ConfiguredRadium from '../ConfiguredRadium';
 import Radium from 'radium';
 
 
-const PulseDetail = ({ loading, children, duration, size }) => {
+const PulseDetail = ({ loading, children, duration, size, loaderColor }) => {
+  // determine colors
+  const colors = {
+    loaderColor: '#5b5b5b'
+  }
+  if (loaderColor && typeof loaderColor === 'string') {
+    colors.loaderColor = loaderColor;
+  }
+  
+  // determine duration
   const animationDuration = duration ? duration : 0.75;
 
+  // determine size
   let pulseWidth = 12.5;
   let centerPulseHeight = 50;
   let sidePulseHeight = 33.3;
   let sidePulseMargin = 10;
 
-  if (size === 'sm') {
-    pulseWidth = 6.25;
-    centerPulseHeight = 25;
-    sidePulseHeight = 16.65;
-    sidePulseMargin = 5;
-  }
-  else if (size === 'lg') {
-    pulseWidth = 25;
-    centerPulseHeight = 100;
-    sidePulseHeight = 66.6;
-    sidePulseMargin = 20;
+  if (size) {
+    if (size === 'sm') {
+      pulseWidth = 6.25;
+      centerPulseHeight = 25;
+      sidePulseHeight = 16.65;
+      sidePulseMargin = 5;
+    }
+    else if (size === 'lg') {
+      pulseWidth = 25;
+      centerPulseHeight = 100;
+      sidePulseHeight = 66.6;
+      sidePulseMargin = 20;
+    }
   }
 
   const pulseKeyframes = Radium.keyframes({
     '0%, 10%': { background: '#efefef' },
-    '50%': { background: '#5b5b5b' }
+    '50%': { background: colors.loaderColor }
   }, 'pulse');
 
   const pulseBoxStyles = {
