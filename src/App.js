@@ -7,6 +7,7 @@ import LoaderSize from './demo_components/LoaderSize';
 import LoaderColor from './demo_components/LoaderColor';
 import BackgroundColor from './demo_components/BackgroundColor';
 import LoaderFixed from './demo_components/LoaderFixed';
+import LoaderSnippet from './demo_components/LoaderSnippet';
 
 import Blotty from './loaders/Blotty';
 import GSpinner from './loaders/GSpinner';
@@ -33,7 +34,7 @@ class App extends Component {
       activeDuration: getDefaultDuration(defaultLoader),
       activeSize: 'md',
       activeLoaderColor: getDefaultLoaderColors(defaultLoader)[0],
-      activeBackgroundColor: '#fff',
+      activeBackgroundColor: '#ffffff',
       isFixed: 'true',
       preview: false
     };
@@ -115,6 +116,10 @@ class App extends Component {
         <div className="App-header">
             <h1>React Animation Loaders</h1>
         </div>
+        <LoaderSnippet name={activeLoader} size={this.state.activeSize}
+          duration={duration} isFixed={this.state.isFixed}
+          loaderColor={this.state.activeLoaderColor}
+          backgroundColor={this.state.activeBackgroundColor}/>
         <div className="controls">
           <LoaderSelect setLoader={this.handleActiveLoader}
           activeLoader={activeLoader}/>
