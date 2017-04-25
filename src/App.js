@@ -108,70 +108,85 @@ class App extends Component {
   }
 
   render() {
-    const activeLoader = this.state.activeLoader;
-    const duration = this.state.activeDuration;
+    const {
+      activeLoader, activeDuration, activeSize,
+      activeBackgroundColor, activeLoaderColor,
+      isFixed
+    } = this.state;
 
     return (
       <div className="App">
-        <div className="App-header">
-            <h1>React Animation Loaders</h1>
-        </div>
-        <LoaderSnippet name={activeLoader} size={this.state.activeSize}
-          duration={duration} isFixed={this.state.isFixed}
-          loaderColor={this.state.activeLoaderColor}
-          backgroundColor={this.state.activeBackgroundColor}/>
-        <div className="controls">
-          <LoaderSelect setLoader={this.handleActiveLoader}
-          activeLoader={activeLoader}/>
-          <LoaderDurationInput onDurationChange={this.handleSliderChange} 
-            duration={duration} activeLoader={activeLoader}/>
-          <LoaderSize setSize={this.handleSizeChange} size={this.state.activeSize} />
-          <LoaderFixed setFixed={this.handleFixed} isFixed={this.state.isFixed} renderFixed={this.handlePreview}/>
-          <LoaderColor setColor={this.handleLoaderColorChange} color={this.state.activeLoaderColor}/>
-          <BackgroundColor setColor={this.handleBackgroundColorChange} color={this.state.activeBackgroundColor}/>
-        </div>
-
-        {/* LOADERS */}
-        <div className="loaders" onClick={this.handlePreviewClick}>
-
-            {/* G Spinner */}
-          <GSpinner loading={activeLoader === 'GSpinner'}
-            loaderColor={this.state.activeLoaderColor}
-            isFixed={this.state.isFixed === 'true' && this.state.preview}
-            backgroundColor={this.state.activeBackgroundColor}
-            duration={duration} size={this.state.activeSize}>
-            <span></span>
-          </GSpinner>
-
-          {/* Blotty */}
-          <Blotty loading={activeLoader === 'Blotty'}
-            loaderColor={this.state.activeLoaderColor}
-            isFixed={this.state.isFixed === 'true' && this.state.preview}
-            backgroundColor={this.state.activeBackgroundColor}
-            duration={duration} size={this.state.activeSize}>
-            <span></span>
-          </Blotty>
-
-          {/* Pulse */}
-          <Pulse loading={activeLoader === 'Pulse'}
-            loaderColor={this.state.activeLoaderColor}
-            isFixed={this.state.isFixed === 'true' && this.state.preview}
-            backgroundColor={this.state.activeBackgroundColor}
-            duration={duration} size={this.state.activeSize}>
-            <span></span>
-          </Pulse>
-
-          {/* AMCDots */}
-          <AMCDots loading={activeLoader === 'AMCDots'}
-            loaderColor={this.state.activeLoaderColor}
-            isFixed={this.state.isFixed === 'true' && this.state.preview}
-            backgroundColor={this.state.activeBackgroundColor}
-            duration={duration} size={this.state.activeSize}>
-            <span></span>
-          </AMCDots>
-          
-        </div>
         
+        <h1 className="App-header">React Animation Loaders</h1>
+
+        <LoaderSnippet name={activeLoader} size={activeSize}
+          duration={activeDuration} isFixed={isFixed}
+          loaderColor={activeLoaderColor}
+          backgroundColor={activeBackgroundColor}/>
+
+        <div className="preview-controller-wrapper">
+          <div className="controls">
+            <LoaderSelect setLoader={this.handleActiveLoader}
+            activeLoader={activeLoader}/>
+            <LoaderDurationInput onDurationChange={this.handleSliderChange} 
+              duration={activeDuration} activeLoader={activeLoader}/>
+            
+            <LoaderSize setSize={this.handleSizeChange} size={activeSize} />
+
+            <LoaderFixed setFixed={this.handleFixed} isFixed={isFixed} renderFixed={this.handlePreview}/>
+            <div className="color-pickers">
+              <div className="color-picker">
+                <h3>Loader Color</h3>
+                <LoaderColor setColor={this.handleLoaderColorChange} color={activeLoaderColor}/>
+              </div>
+              <div className="color-picker">
+                <h3>Background Color</h3>
+                <BackgroundColor setColor={this.handleBackgroundColorChange} color={activeBackgroundColor}/>
+              </div>
+            </div>
+          </div>
+
+          {/* LOADERS */}
+          <div className="loaders" onClick={this.handlePreviewClick}>
+
+              {/* G Spinner */}
+            <GSpinner loading={activeLoader === 'GSpinner'}
+              loaderColor={activeLoaderColor}
+              isFixed={isFixed === 'true' && this.state.preview}
+              backgroundColor={activeBackgroundColor}
+              duration={activeDuration} size={activeSize}>
+              <span></span>
+            </GSpinner>
+
+            {/* Blotty */}
+            <Blotty loading={activeLoader === 'Blotty'}
+              loaderColor={activeLoaderColor}
+              isFixed={isFixed === 'true' && this.state.preview}
+              backgroundColor={activeBackgroundColor}
+              duration={activeDuration} size={activeSize}>
+              <span></span>
+            </Blotty>
+
+            {/* Pulse */}
+            <Pulse loading={activeLoader === 'Pulse'}
+              loaderColor={activeLoaderColor}
+              isFixed={isFixed === 'true' && this.state.preview}
+              backgroundColor={activeBackgroundColor}
+              duration={activeDuration} size={activeSize}>
+              <span></span>
+            </Pulse>
+
+            {/* AMCDots */}
+            <AMCDots loading={activeLoader === 'AMCDots'}
+              loaderColor={activeLoaderColor}
+              isFixed={isFixed === 'true' && this.state.preview}
+              backgroundColor={activeBackgroundColor}
+              duration={activeDuration} size={activeSize}>
+              <span></span>
+            </AMCDots>
+            
+          </div>
+        </div>
       </div>
     )
   }
