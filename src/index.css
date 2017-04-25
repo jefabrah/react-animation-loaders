@@ -9,20 +9,25 @@ body {
 }
 
 .App-header {
-  background-color: #222;
-  height: 100%;
+  color: #222222;
+}
+
+.preview-controller-wrapper {
   padding: 20px;
-  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.loaders, .controls {
+  margin: 10px;
 }
 
 .loaders {
-  padding: 0;
   width: 600px;
   height: 600px;
   background-color: white;
   border: solid 2px #cecece;
-  margin-right: 50px;
-  margin-top: 50px;
   clear: both;
   display: inline-block;
 }
@@ -46,9 +51,19 @@ body {
   color: #0000ff;
 }
 
-
-
-
+.loader-snippet pre {
+  min-height: 20px;
+  width: 550px;
+  padding: 10px;
+  text-align: left;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: .9em;
+}
+.loader-snippet div {
+  margin-top: 20px;
+}
 /* 
 =================
  LOADER CONTROLS
@@ -56,12 +71,42 @@ body {
  */
 .controls {
   float: left;
-  padding: 50px;
+  padding: 10px;
+  width: 500px;
+}
 
+/* size radio buttons */
+.loader-size {
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+}
+
+/* idFixed control */
+.loader-fixed {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #cecece;
+  margin-bottom: 10px;
+}
+
+.fixed-radios {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .btn-preview {
-  width: 100px;
+  width: 125px;
   height: 25px;
   border-radius: 20px;
   background-color: #14B917;
@@ -69,8 +114,21 @@ body {
 }
 
 /* color pickers */
-.controls > .chrome-picker {
-  float: left;
+.color-pickers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.color-picker {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #cecece;
+  box-shadow: 4px 9px 5px rgba(0, 0, 0, 0.22);
+}
+.color-picker h3 {
+  margin: 5px;
 }
 
 /* loader dropdown */
