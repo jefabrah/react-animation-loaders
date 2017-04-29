@@ -9,11 +9,11 @@ import BackgroundColor from './demo_components/BackgroundColor';
 import LoaderFixed from './demo_components/LoaderFixed';
 import LoaderSnippet from './demo_components/LoaderSnippet';
 
-import Blotty from './loaders/Blotty';
-import GSpinner from './loaders/GSpinner';
-import Pulse from './loaders/Pulse';
-import AMCDots from './loaders/AMCDots';
-
+import { GSpinner,
+         Blotty,
+         Pulse,
+         AMCDots
+          } from '../../index.js';
 
 class App extends Component {
   constructor () {
