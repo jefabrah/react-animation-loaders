@@ -1,0 +1,29 @@
+{
+  "name": "react-animation-loaders",
+  "version": "1.0.0",
+  "description": "Composable, CSS agnostic react loader components",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefabrah/react-animation-loaders.git"
+  },
+  "keywords": [
+    "loader",
+    "loaders",
+    "react",
+    "component",
+    "animation"
+  ],
+  "author": "Jeffrey Abraham <jeffreyabraham@outlook.com> (http://jeffrey-abraham.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jefabrah/react-animation-loaders/issues"
+  },
+  "homepage": "https://github.com/jefabrah/react-animation-loaders#readme"
+}
