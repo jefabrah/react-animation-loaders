@@ -18,3 +18,7 @@ yarn-error.log*
 
 # vscode
 settings.json
+
+# builds
+index.js
+docs/src/lib/index.js

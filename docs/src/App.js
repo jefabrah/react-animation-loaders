@@ -13,7 +13,7 @@ import { GSpinner,
          Blotty,
          Pulse,
          AMCDots
-          } from '../../index.js';
+          } from './lib/';
 
 class App extends Component {
   constructor () {
