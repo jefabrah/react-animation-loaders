@@ -22,3 +22,4 @@ settings.json
 # builds
 index.js
 docs/src/lib/index.js
+**/build/**
