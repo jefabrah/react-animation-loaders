@@ -188,10 +188,11 @@ const GSpinnerDetail = ({ duration, size, loaderColor, backgroundColor, isFixed 
   }
 
   const gSpinnerBoxStyles = {
-    position: 'relative',
-    margin: '0 auto',
-    width: '100%',
-    height: '100%',
+    height: `100px`,
+    width: `100px`,
+    position: 'absolute',
+    top: `calc(50% - 50px)`,
+    left: `calc(50% - 50px)`,
     animation: `x ${animationDuration / 2}s cubic-bezier(0.465, 0.183, 0.153, 0.946) infinite`,
     animationName: gSpinnerBoxRotate
   }
