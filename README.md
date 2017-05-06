@@ -9,6 +9,7 @@
 	- animation speed
 	- fixed/unfixed
 - CSS Agnostic
+	- Radium for styling and keyframes
 
 
 ### Getting Started
