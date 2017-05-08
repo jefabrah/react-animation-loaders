@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const loaders = require('./webpack.loaders');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "8888";
@@ -50,6 +49,5 @@ module.exports = {
       filename: 'demo_bundle.css',
       allChunks: true
     }),
-    new DashboardPlugin(),
   ]
 }
