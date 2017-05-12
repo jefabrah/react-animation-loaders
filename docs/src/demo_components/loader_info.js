@@ -20,6 +20,10 @@ export default {
   AMCDots: {
     defaultDuration: 1.5,
     defaultColors: ['#222','#222','#222']
-  }
+  },
+  CollapsingCircle: {
+    defaultDuration: 2,
+    defaultColors: ['#51ff20','#51ff20','#51ff20']
+  },
 }
 
