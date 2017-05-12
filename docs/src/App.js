@@ -12,7 +12,8 @@ import LoaderSnippet from './demo_components/LoaderSnippet';
 import { GSpinner,
          Blotty,
          Pulse,
-         AMCDots
+         AMCDots,
+         CollapsingCircle,
           } from './lib/';
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
     this.handlePreview = this.handlePreview.bind(this);
     this.handlePreviewClick = this.handlePreviewClick.bind(this);
 
-    const defaultLoader = 'GSpinner';
+    const defaultLoader = 'CollapsingCircle';
     
     this.state = {
       activeLoader: defaultLoader,
@@ -149,7 +150,16 @@ class App extends Component {
           {/* LOADERS */}
           <div className="loaders" onClick={this.handlePreviewClick}>
 
-              {/* G Spinner */}
+             {/* Collapsing Circle */}
+            <CollapsingCircle loading={activeLoader === 'CollapsingCircle'}
+              loaderColor={activeLoaderColor}
+              isFixed={isFixed === 'true' && this.state.preview}
+              backgroundColor={activeBackgroundColor}
+              duration={activeDuration} size={activeSize}>
+              <span></span>
+            </CollapsingCircle>
+
+            {/* G Spinner */}
             <GSpinner loading={activeLoader === 'GSpinner'}
               loaderColor={activeLoaderColor}
               isFixed={isFixed === 'true' && this.state.preview}
