@@ -28,7 +28,7 @@ class App extends Component {
     this.handlePreview = this.handlePreview.bind(this);
     this.handlePreviewClick = this.handlePreviewClick.bind(this);
 
-    const defaultLoader = 'CollapsingCircle';
+    const defaultLoader = 'AMCDots';
     
     this.state = {
       activeLoader: defaultLoader,
@@ -43,12 +43,10 @@ class App extends Component {
 
   handleActiveLoader(activeLoader) {
     const activeDuration = getDefaultDuration(activeLoader);
-    const activeLoaderColor = getDefaultLoaderColors(activeLoader)[0];
 
     this.setState({ 
       activeLoader,
       activeDuration,
-      activeLoaderColor
     });
   }
 
@@ -95,11 +93,6 @@ class App extends Component {
       return;
     }
     this.setState({ preview: true });
-    setTimeout(() => {
-      if (this.state.preview) {
-        this.setState({ preview: false });
-      }
-    }, 6000);
   }
 
   handlePreviewClick() {
@@ -117,6 +110,8 @@ class App extends Component {
 
     return (
       <div className="App">
+
+        <a href="https://github.com/jefabrah/react-animation-loaders#react-animation-loaders" className="fa fa-github gh-icon"></a>
         
         <h1 className="App-header">React Animation Loaders</h1>
 
