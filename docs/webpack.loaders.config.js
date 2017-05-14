@@ -5,6 +5,7 @@ module.exports = [
   {
     cache: true,
     entry: "../loaders/index.js",
+    devtool: 'cheap-module-eval-source-map',
     externals: [
       {
         "react": {

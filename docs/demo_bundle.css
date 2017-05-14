@@ -12,10 +12,21 @@ body {
   color: #222222;
 }
 
+.gh-icon {
+  position: absolute;
+  width: 50px;
+  height:50px;
+  right: 30px;
+  top: 30px;
+  font-size: 4em;
+  text-decoration: none;
+  color: black;
+}
+
 .preview-controller-wrapper {
   padding: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -30,6 +41,7 @@ body {
   border: solid 2px #cecece;
   clear: both;
   display: inline-block;
+  margin-left: 30px;
 }
 
 .loader-heading {
@@ -75,6 +87,35 @@ body {
   width: 500px;
 }
 
+ /* loader dropdown */
+.loader-select-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.loader-select-label {
+  display: block;
+  margin-bottom: 10px;
+}
+.loader-select-box {
+  max-width: 200px;
+}
+.loader-select-arrows {
+  margin-top: 10px;
+}
+.loader-select-arrows div:nth-child(2) {
+  margin-left: 10px;
+}
+
+ /*loader duration slider*/
+.loader-duration {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #cecece;
+}
+
 /* size radio buttons */
 .loader-size {
   width: 100%;
@@ -108,9 +149,9 @@ body {
 .btn-preview {
   width: 125px;
   height: 25px;
-  border-radius: 20px;
   background-color: #14B917;
-  border: 1px solid #2D2B2B;
+  border: none;
+  color: #fff;
 }
 
 /* color pickers */
@@ -129,14 +170,6 @@ body {
 }
 .color-picker h3 {
   margin: 5px;
-}
-
-/* loader dropdown */
-.loader-select {
-  display: block;
-}
-#loader-select {
-  width: 400px;
 }
 
 /* Slider */

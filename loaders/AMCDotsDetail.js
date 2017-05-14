@@ -16,8 +16,7 @@ const AMCDotsDetail = ({ duration, size, loaderColor, backgroundColor, isFixed }
   if (backgroundColor && typeof backgroundColor === 'string') {
     colors.backgroundColor = backgroundColor;
   }
-  console.log(colors.backgroundColor);
-  console.log(backgroundColor)
+
   // determine duration
   const animationDuration = duration ? duration : 1.5;
 
